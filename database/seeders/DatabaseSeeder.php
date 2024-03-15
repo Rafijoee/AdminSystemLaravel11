@@ -27,7 +27,15 @@ class DatabaseSeeder extends Seeder
             CategoriesSeeder::class,
             StagessSeeder::class,
             TeamsSeeder::class,
+            universitySeeder::class,
+            MemberSeeder::class,
+            SubmissionTypesSeeder::class,
+            SubmissionsSeeder::class,
+            TeamSubmissionsSeeder::class,
+            TeamSubmissionDetailsSeeder::class,
+
         ]);
+
 
     }
 }
