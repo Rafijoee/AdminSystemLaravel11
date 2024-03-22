@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@keyframes slideInLeft{
+    from{
+        transform: translateX(-4000px);
+    }
+    to{
+        transfrom: translateX(250000px);
+    }
+}
+
+#awan-1 {
+    animation-name: slideInLeft;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+
+
+#awan-2 {
+    animation-name: slideInLeft;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+@media screen and (max-width:768px){
+    @keyframes slideInLeft{
+        from{
+            transform: translateX(-3000px);
+        }
+        to{
+            transfrom: translateX(2500px);
+        }
+    }
+    #awan-1 {
+        animation-name: slideInLeft;
+        animation-duration: 8s;
+        animation-timing-function: linier;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+    }
+
+    #awan-2 {
+        animation-name: slideInLeft;
+        animation-duration: 8s;
+        animation-timing-function: linier;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+    }
+}
