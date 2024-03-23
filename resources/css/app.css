@@ -32,15 +32,15 @@
 @media screen and (max-width:768px){
     @keyframes slideInLeft{
         from{
-            transform: translateX(-3000px);
+            transform: translateX(-2500px);
         }
         to{
-            transfrom: translateX(2500px);
+            transfrom: translateX(1000px);
         }
     }
     #awan-1 {
         animation-name: slideInLeft;
-        animation-duration: 8s;
+        animation-duration: 15s;
         animation-timing-function: linier;
         animation-delay: 0s;
         animation-iteration-count: infinite;
@@ -48,9 +48,9 @@
 
     #awan-2 {
         animation-name: slideInLeft;
-        animation-duration: 8s;
+        animation-duration: 15s;
         animation-timing-function: linier;
-        animation-delay: 2s;
+        animation-delay: 8s;
         animation-iteration-count: infinite;
     }
 }
