@@ -5,16 +5,16 @@
 
 @keyframes slideInLeft{
     from{
-        transform: translateX(-4000px);
+        transform: translateX(-2500px);
     }
     to{
-        transfrom: translateX(250000px);
+        transfrom: translateX(1000px);
     }
 }
 
 #awan-1 {
     animation-name: slideInLeft;
-    animation-duration: 5s;
+    animation-duration: 15s;
     animation-timing-function: ease-in;
     animation-delay: 0s;
     animation-iteration-count: infinite;
@@ -23,9 +23,9 @@
 
 #awan-2 {
     animation-name: slideInLeft;
-    animation-duration: 5s;
+    animation-duration: 15s;
     animation-timing-function: ease-in;
-    animation-delay: 2s;
+    animation-delay: 7s;
     animation-iteration-count: infinite;
 }
 

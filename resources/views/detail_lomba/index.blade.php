@@ -10,8 +10,10 @@
     
 </head>
 <body class="bg-blue-200">
-    <img src="{{ asset('images/Awan 4.png') }}" alt="" class="-z-10 fixed mt-20 scale-[0.20] ml-[2000px] md:transform-none" id="awan-1">
-    <img src="{{ asset('images/Awan 4.png') }}" alt="" class="-z-10 fixed mt-[600px] scale-20 ml-[2000px] md:transform-none" id="awan-2">
+    <div class="awan">
+        <img src="{{ asset('images/Awan 6.png') }}" alt="" class="-z-10 fixed ml-[2000px] -mt-20 scale-50 md:transform-none" id="awan-1">
+        <img src="{{ asset('images/Awan 4.png') }}" alt="" class="-z-20 fixed mt-[100px] scale-50 ml-[2000px] md:transform-none" id="awan-2">
+    </div>
     <div class="container  mx-auto mt-20 flex justify-center">
         <div class="container-main bg-slate-50 w-2/3 relative justify-center mb-10 rounded-sm"> 
             <div class="content-atas mb-6 text-center mt-10">
