@@ -20,10 +20,6 @@
       <ul class="space-y-2 font-medium">
          <li>
             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <!-- <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                  <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
-                  <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
-               </svg> -->
                <span class="font-black">DASHBOARD</span>
             </a>
          </li>
@@ -33,7 +29,7 @@
                   <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
                </svg>
                <span class="flex-1 ms-3 whitespace-nowrap">Peserta</span>
-               <!-- <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span> -->
+               <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
             </a>
          </li>
          <li>
@@ -50,8 +46,6 @@
                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                   <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
                </svg>
-            
-            
                <span class="flex-1 ms-3 whitespace-nowrap">Submission</span>
             </a>
          </li>
@@ -60,26 +54,26 @@
 </aside>
 
 <!-- CONTENT -->
-<div class="p-4 sm:ml-64 bg-blue-200">
+<div class="p-4 sm:ml-64 bg-gray-100">
    <div>
       <div class="flex items-center justify-center h-48 mb-4 rounded">
          <img src="{{ asset('images/sample-header-form.png') }}" alt="itc-banner">
       </div>
       
       <div class="grid grid-cols-3 gap-4 mb-4">
-         <div class="flex items-center justify-center rounded bg-white border border-gray-200 dark:bg-sky-400 h-36">
+         <div class="flex items-center justify-center rounded bg-white border border-gray-200 dark:bg-gray-800 h-36">
             <p class="text-black dark:text-white text-center">
                <span class="font-black text-xl">Yanuario Adimada</span><br>
                <span class="text-sm font-normal">ICT SCIENTIFIC PAPER</span>
             </p>
          </div>
-         <div class="flex items-center justify-center rounded bg-white border border-gray-200 dark:bg-sky-400 h-36">
+         <div class="flex items-center justify-center rounded bg-white border border-gray-200 dark:bg-gray-800 h-36">
             <p class="text-black dark:text-white text-center">
                <span class="font-black text-xl">081234567892</span><br>
                <span class="text-sm font-normal">Captain's Number</span>
             </p>
          </div>
-         <div class="flex items-center justify-center rounded bg-white border border-gray-200 dark:bg-sky-400 h-36">
+         <div class="flex items-center justify-center rounded bg-white border border-gray-200 dark:bg-gray-800 h-36">
             <p class="text-black dark:text-white text-center">
                <span class="font-black text-xl">Universitas Indonesia</span><br>
                <span class="text-sm font-normal">College</span>
@@ -87,24 +81,24 @@
          </div>
       </div>
 
-   <!-- kiri -->
+   <!-- BAWAH KIRI -->
    <div class="grid grid-cols-2 mb-96">
-      <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-         <div class="mb-5"> <!-- Jumlah member -->
+      <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-200">
+         <div class="mb-5"> <!-- JUMLAH MEMBER -->
             <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">3</h5>
             <p class="text-gray-500">Members</p>
          </div>
-         <div class="mb-5"> <!-- Jumlah member -->
+         <div class="mb-5"> <!-- JUMLAH STAGE -->
             <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">3 Stage</h5>
             <p class="text-gray-500">Towards Champion</p>
          </div>
          <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse font-bold">
-            <a href="#" class="w-full sm:w-auto bg-green-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+            <a href="#" class="w-full sm:w-auto bg-green-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
                   <div class="text-left rtl:text-right">
                      <div class="mb-1 text-sm">Verified</div>
                   </div>
             </a>
-            <a href="#" class="w-full sm:w-auto bg-green-600 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+            <a href="#" class="w-full sm:w-auto bg-green-600 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
                   <div class="text-left rtl:text-right">
                      <div class="mb-1 text-sm">Success</div>
                   </div>
@@ -112,8 +106,8 @@
          </div>
       </div>
 
-      <!-- kanan -->
-      <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
+      <!-- BAWAH KANAN -->
+      <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-200 mx-4">
          <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800" id="defaultTab" data-tabs-toggle="#defaultTabContent" role="tablist">
             <li class="me-2">
                   <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="true" class="inline-block p-4 text-blue-600 rounded-ss-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500">Informations</button>
@@ -124,7 +118,7 @@
          </ul>
          <div id="defaultTabContent">
             <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
-                  <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Powering innovation & trust at 200,000+ companies worldwide</h2>
+                  <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white z-20">Powering innovation & trust at 200,000+ companies worldwide</h2>
                   <p class="mb-3 text-gray-500 dark:text-gray-400">Empower Developers, IT Ops, and business teams to collaborate at high velocity. Respond to changes and deliver great customer and employee service experiences fast.</p>
                   <a href="#" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700">
                      Learn more
