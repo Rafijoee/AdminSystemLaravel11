@@ -42,6 +42,6 @@ class Members extends Model
 
     public function university(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Universities::class);
+        return $this->belongsTo(\App\Models\Universities::class, 'university_id', 'id');
     }
 }
