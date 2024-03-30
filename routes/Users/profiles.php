@@ -4,6 +4,5 @@ use App\Http\Controllers\Users\ProfilesController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfilesController::class, 'index'])->name('profile');
-    Route::get('/form', [ProfilesController::class, 'form'])->name('form');
+    Route::resource('profile', ProfilesController::class);
 });
