@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('team_submissions_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('team_submissions_id')->constrained('team_submissions');
-            $table->foreignId('submission_type_id')->constrained();
+            $table->foreignId('submissions_type_id')->constrained('submissions_types');
             $table->string('path');
             $table->timestamps();
         });
