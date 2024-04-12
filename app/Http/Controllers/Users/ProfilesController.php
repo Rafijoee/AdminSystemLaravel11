@@ -59,8 +59,8 @@ class ProfilesController extends Controller
 
                 $univ = $request['univ_anggota_'.$i];
                 $name = $request['name_anggota_'.$i];
-                $ktm_path = $request->file('ktm_anggota_'.$i)->store('ktm_anggota_'.$i);
-                $active_path = $request->file('active_anggota_'.$i)->store('active_anggota_'.$i);
+                $ktm_path = $request->file('ktm_anggota_'.$i)->store($request->team_name.'.ktm');
+                $active_path = $request->file('active_anggota_'.$i)->store($request->team_name.'.active');
                 Members::create([
                     'team_id' => $teams->id,
                     'full_name' => $name,

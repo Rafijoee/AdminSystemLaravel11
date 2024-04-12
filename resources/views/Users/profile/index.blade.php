@@ -10,16 +10,16 @@
             
             <div class="space-y-6">
                     <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Nama Team</label>
-                    <input name="team_name" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                    <input disabled value="{{$team->team_name}}" name="team_name" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                 </div>
                 <div class="mb-6">
                     <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">No Telepon</label>
-                    <input name="phone" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                    <input disabled value="{{$team->phone}}" name="phone" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                 </div>
                 <div class="mb-6">
                     <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Kategori Lomba</label>
                     <select name="category_id" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                        <option selected>{{$team->categories}}</option>
+                        <option selected>{{$team->category->category_name}}</option>
                     </select>
                 </div>
                 @foreach($members as $index => $member)
@@ -31,7 +31,7 @@
                     </h1>
                     <div class="mb-6">
                         <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Nama Lengkap</label>
-                        <input value="{{$member->full_name}}" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                        <input disabled value="{{$member->full_name}}" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                     </div>
                     <div class="mb-6">
                         <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Universitas</label>
@@ -51,8 +51,8 @@
                 </div>
                 @endforeach
 
-                {{-- <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button> --}}
+                <a href="{{route('profile.edit',$team->id)}}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-layout> 
