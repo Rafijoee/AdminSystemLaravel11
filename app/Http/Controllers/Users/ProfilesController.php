@@ -31,7 +31,9 @@ class ProfilesController extends Controller
     public function create(){
         $categories = Categories::all();
         $universities = Universities::all();
-        return view('users.profile.form',compact('categories','universities'));
+        $team = null;
+        $members = null;
+        return view('users.profile.form',compact('categories','universities','team','members'));
     }
 
     public function store(StoreProfileRequest $request)
