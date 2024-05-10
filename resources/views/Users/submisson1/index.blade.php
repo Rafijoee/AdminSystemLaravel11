@@ -1,7 +1,7 @@
 <x-dashboard.layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <form action="/submissions1" method="POST" enctype="multipart/form-data">
+            <form action="/submissions1/store" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-6">

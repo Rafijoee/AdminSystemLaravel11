@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProfileRequest;
 use App\Models\Categories;
 use App\Models\Members;
 use App\Models\Teams;
+use App\Models\TeamSubmissionsDetails;
 use App\Models\Universities;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
@@ -132,6 +133,8 @@ class ProfilesController extends Controller
         return redirect()->route('profile.index')->with('success', 'Berhasil mengubah tim');
 
     }
+
+
 
 
 

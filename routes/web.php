@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Submissions1Controller;
+use App\Http\Controllers\Users\ProfilesController;
+use App\Http\Controllers\Sub1Controller;
+use App\Http\Controllers\Users\Submissions1Controller as UsersSubmissions1Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +36,11 @@ Route::get('/submission', function () { // #3 Submission
 Route::get('/dashboard2', function () {
     return view('dashboard'); // awalnya dashboard aja
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/submissions1', [UsersSubmissions1Controller::class,'index']);
+Route::post('/submissions1/store', [Sub1Controller::class,'store']);
+
 
 
 require __DIR__.'/users/profiles.php';
