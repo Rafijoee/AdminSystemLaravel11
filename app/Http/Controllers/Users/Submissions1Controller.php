@@ -19,7 +19,7 @@ class Submissions1Controller extends Controller
         $user = Auth::user();
         $categorys_id = $user->teams->team_submission;
 
-        return view('Users\submisson1\index', compact('categorys_id'));
+        return view('users\submisson1\index', compact('categorys_id'));
     }
 
     public function store(Request $request)
@@ -29,22 +29,23 @@ class Submissions1Controller extends Controller
             File::makeDirectory($directory, 0777, true, true);
         }
         try {
-            // Validasi request
             $validator = $request->validate([
                 'submission1' => 'required|mimes:pdf|max:5120',
             ]);
 
             if ($request->hasFile('submission1')) {
                 $file = $request->file('submission1');
-                $fileName = time() . '_' . $file->getClientOriginalName();
+                $teamName = Auth::user()->teams->firstOrFail()->team_name;
+                $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
                 $file->move(public_path('submission1'), $fileName);
 
-                // Simpan data submission ke database
                 $submission = new TeamSubmissionsDetails();
                 $submission->path = 'submission1/' . $fileName;
+                $submission->team_submissions_id = Auth::user()->teams->team_submissions->id;
+                $submission->type = 1; 
                 $submission->save();
 
-                return response()->json(['message' => 'File berhasil diupload'], 200);
+                return redirect()->route('dashboard');
             } else {
                 return response()->json(['error' => 'File tidak ditemukan'], 400);
             }

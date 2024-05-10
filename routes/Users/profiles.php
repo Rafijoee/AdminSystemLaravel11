@@ -9,5 +9,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('submission1', Submissions1Controller::class);
+    Route::resource('submissions1', Submissions1Controller::class);
 });
