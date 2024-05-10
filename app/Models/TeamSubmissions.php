@@ -33,7 +33,7 @@ class TeamSubmissions extends Model
 
     public function team(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Teams::class);
+        return $this->belongsTo(\App\Models\Teams::class,'team_id');
     }
 
     public function stage(): BelongsTo
