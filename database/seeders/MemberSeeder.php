@@ -17,7 +17,7 @@ class MemberSeeder extends Seeder
         $team_id = Teams::all();
         $faker = \Faker\Factory::create();
         foreach ($team_id as $key => $value) {
-            for ($i = 0; $i <= $value['total_members']; $i++) {
+            for ($i = 0; $i < $value['total_members']; $i++) {
                 Members::create([
                     'team_id' => $value['id'],
                     'full_name' => $faker->name,
