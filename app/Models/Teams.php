@@ -56,4 +56,8 @@ class Teams extends Model
     {
         return $this->hasMany(\App\Models\Members::class, 'team_id', 'id');
     }
+    public function team_submission()
+    {
+        return $this->hasOne(\App\Models\TeamSubmissions::class, 'team_id');
+    }
 }
