@@ -30,21 +30,20 @@ class Submission2Controller extends Controller
             $validator = $request->validate([
                 'submission2' => 'required|mimes:zip|max:5120',
             ]);
-            dd($validator);
-
+            
             if ($request->hasFile('submission2')) {
                 $file = $request->file('submission2');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
                 $file->move(public_path('submission2'), $fileName);
-
+                
                 $submission = new TeamSubmissionsDetails();
                 $submission->path = 'submission2/' . $fileName;
-                $submission->team_submissions_id = Auth::user()->teams->team_submissions->id;
+                $submission->team_submissions_id = Auth::user()->teams?->team_submission?->first()->id;
                 $submission->submissions_type_id = 1; 
                 $submission->save();
-
-                return redirect()->route('dashboard');
+                
+                return redirect()->route('dashboard');                
             } else {
                 return response()->json(['error' => 'File tidak ditemukan'], 400);
             }
