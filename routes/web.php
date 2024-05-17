@@ -35,5 +35,8 @@ Route::get('/dashboard2', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+
+
+
 require __DIR__.'/users/profiles.php';
 require __DIR__.'/auth.php';

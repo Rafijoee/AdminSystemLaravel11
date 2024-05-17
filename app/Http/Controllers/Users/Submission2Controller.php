@@ -11,38 +11,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
-
-class Submissions1Controller extends Controller
+class Submission2Controller extends Controller
 {
     public function index()
     {
         $user = Auth::user();
         $categorys_id = $user->teams->team_submission;
 
-        return view('users\submisson1\index', compact('categorys_id'));
+        return view('users\submisson2\index', compact('categorys_id'));
     }
-
     public function store(Request $request)
     {
-        $directory = public_path('submission1');
+        $directory = public_path('submission2');
         if (!File::isDirectory($directory)) {
             File::makeDirectory($directory, 0777, true, true);
         }
         try {
             $validator = $request->validate([
-                'submission1' => 'required|mimes:zip|max:5120',
+                'submission2' => 'required|mimes:zip|max:5120',
             ]);
+            dd($validator);
 
-            if ($request->hasFile('submission1')) {
-                $file = $request->file('submission1');
+            if ($request->hasFile('submission2')) {
+                $file = $request->file('submission2');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
-                $file->move(public_path('submission1'), $fileName);
+                $file->move(public_path('submission2'), $fileName);
 
                 $submission = new TeamSubmissionsDetails();
-                $submission->path = 'submission1/' . $fileName;
+                $submission->path = 'submission2/' . $fileName;
                 $submission->team_submissions_id = Auth::user()->teams->team_submissions->id;
-                $submission->type = 1; 
+                $submission->submissions_type_id = 1; 
                 $submission->save();
 
                 return redirect()->route('dashboard');

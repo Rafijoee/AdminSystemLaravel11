@@ -1,12 +1,12 @@
 <x-dashboard.layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <form action="/submissions1" method="POST" enctype="multipart/form-data">
+            <form action="/submissions2" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-6">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Unggah berkas stage 1 dalam bentuk ZIP</label>
-                    <input name="submission1" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none   " aria-describedby="file_input_help" id="file_input" type="file">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Unggah berkas stage 2 dalam bentuk ZIP</label>
+                    <input name="submission2" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none   " aria-describedby="file_input_help" id="file_input" type="file">
                     <p class="mt-1 text-sm text-gray-500 " id="file_input_help">ZIP (MAX:5mb)</p>
                 </div>
         </div>
