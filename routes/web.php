@@ -43,5 +43,6 @@ Route::post('/submissions1/store', [Sub1Controller::class,'store']);
 
 
 
+
 require __DIR__.'/users/profiles.php';
 require __DIR__.'/auth.php';

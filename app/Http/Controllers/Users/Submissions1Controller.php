@@ -33,8 +33,10 @@ class Submissions1Controller extends Controller
         }
 
         try {
-            $validator = Validator::make($request->all(), [
-                'submission1' => 'required|mimes:pdf|max:5120',
+
+            $validator = $request->validate([
+                'submission1' => 'required|mimes:zip|max:5120',
+
             ]);
 
             if ($validator->fails()) {
