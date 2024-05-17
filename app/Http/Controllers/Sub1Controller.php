@@ -1,30 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\TeamSubmissions;
-use App\Models\Teams;
 use App\Models\TeamSubmissionsDetails;
-use Illuminate\Support\Facades\Validator;
-use App\Models\User;
-use Illuminate\Http\Request as HttpRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 
-class Submissions1Controller extends Controller
+class Sub1Controller extends Controller
 {
-    public function index()
-    {
-        $user = Auth::user();
-        $categorys_id = $user->teams->team_submission;
-
-        return view('users\submisson1\index', compact('categorys_id'));
-    }
-
     public function store(Request $request)
     {
         $directory = public_path('submission1');
@@ -33,10 +20,8 @@ class Submissions1Controller extends Controller
         }
 
         try {
-
-            $validator = $request->validate([
-                'submission1' => 'required|mimes:zip|max:5120',
-
+            $validator = Validator::make($request->all(), [
+                'submission1' => 'required|mimes:pdf|max:5120',
             ]);
 
             if ($validator->fails()) {
@@ -53,7 +38,7 @@ class Submissions1Controller extends Controller
                 $submission = [
                     'team_submissions_id' => Auth::user()->teams?->team_submission->first()->id,
                     'submissions_type_id' => 1,
-                    'path' => $path 
+                    'path' => $path
                 ];
                 dd($submission);
 
