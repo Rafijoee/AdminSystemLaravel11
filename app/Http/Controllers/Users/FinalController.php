@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\TeamSubmissions;
-use App\Models\Teams;
 use App\Models\TeamSubmissionsDetails;
-use Illuminate\Support\Facades\Validator;
+use App\Models\TeamSubmissions;
 use App\Models\User;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Auth;
@@ -16,51 +14,66 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 
-class Submissions1Controller extends Controller
+class FinalController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $user = Auth::user();
         $can = $user->teams->stage_id;
-        // if ($can != 1) {
+        // if ($can != 3) {
         //     return redirect()->route('dashboard')->with('error', 'Anda tidak bisa mengakses halaman tersebut!');
         // }
-        $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_1;
+        $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_3;
         $categorys_id = $user->teams->team_submission;
 
-        return view('users\submisson1\index', compact('categorys_id','fileOnUpload'));
+        return view('users\final\index', compact('categorys_id', 'fileOnUpload'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         // dd($request->all());
-        $directory = public_path('submission1');
+        $directory = public_path('final');
         if (!File::isDirectory($directory)) {
             File::makeDirectory($directory, 0777, true, true);
         }
         try {
             $validator = $request->validate([
-                'submission1' => 'required|mimes:zip|max:5120',
+                'final' => 'required|mimes:zip|max:5120',
             ]);
 
-            if ($request->hasFile('submission1')) {
+            if ($request->hasFile('final')) {
                 $team_id = Auth::user()->teams->firstOrFail()->id;
-                $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_1;
+                $fileOnUpload = Auth::user()->teams?->team_submission->first()->path_3;                
                 
                 if (isset($fileOnUpload) && Auth::user()->teams?->team_submission->first()->path_3 != "") {
                     if (file_exists($fileOnUpload)) {
                         unlink($fileOnUpload);
                     }
                 }
+                
 
-                $file = $request->file('submission1');
+                $file = $request->file('final');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
-                $fileLocation = 'submission1/' . Auth::user()->teams?->category?->category_name . '/';
+                $fileLocation = 'final/' . Auth::user()->teams?->category?->category_name . '/';
                 $file->move(public_path($fileLocation), $fileName);
 
                 $path = $fileLocation . $fileName;
-                TeamSubmissions::where('team_id', $team_id)->update(['path_1' => $path]);
+                TeamSubmissions::where('team_id', $team_id)->update(['path_3' => $path]);
 
                 return redirect()->route('dashboard');
             } else {
@@ -70,5 +83,38 @@ class Submissions1Controller extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', 'Gagal mengupload proposal');
         }
+
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

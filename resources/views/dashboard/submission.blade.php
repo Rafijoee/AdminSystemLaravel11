@@ -84,7 +84,7 @@
                             <p class="mb-2 text-gray-500 dark:text-gray-400">Documents needed for this submission (.zip) :</p>
                             <p class="mb-2 text-gray-500 dark:text-gray-400">1. PDF</p>
                             <div class="ml-5 bg-green-100">
-                                <a href="/submissions3" class="block w-full p-3 text-center">Submit Your Documents</a>
+                                <a href="/final-submission" class="block w-full p-3 text-center">Submit Your Documents</a>
                             </div>
                         </div>
                     </div>

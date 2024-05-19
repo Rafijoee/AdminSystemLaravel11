@@ -20,7 +20,7 @@
 
         <div class="mt-10 px-20 ">
             <h1 class="text-2xl font-bold text-blue-700 my-4">
-                2<sup>st</sup> Stage Proposal Submission </h1>
+                Final Stage Proposal Submission </h1>
             <hr class="border-1 border-gray-400">
             @if ($fileOnUpload)
                 <div class="file-preview">
@@ -32,7 +32,7 @@
             @else
                 <h2 class="text-1xl font-semibold my-6">Submit your Documents</h2>
             @endif
-            <form id="submission-form" action="/submissions2" method="POST" enctype="multipart/form-data">
+            <form id="submission-form" action="/final-submission" method="POST" enctype="multipart/form-data">
                 @csrf
                  
                 <div class="flex items-center justify-center w-full">
@@ -49,7 +49,7 @@
                                     to upload</span> or drag and drop</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">ZIP (MAX:5mb)</p>
                         </div>
-                        <input id="dropzone-file" type="file" class="hidden" name="submission2" />
+                        <input id="dropzone-file" type="file" class="hidden" name="final" />
                     </label>
                 </div>
                 <div id="error-message" class="mt-4 text-left text-red-500"></div>

@@ -34,7 +34,7 @@ class TeamSubmissionsDetails extends Model
 
     public function teamSubmissions(): BelongsTo
     {
-        return $this->belongsTo(TeamSubmissions::class);
+        return $this->belongsTo(TeamSubmissions::class,'team_submission_detail');
     }
 
     public function submissionType(): BelongsTo
