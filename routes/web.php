@@ -45,4 +45,6 @@ Route::get('/submissions1', [UsersSubmissions1Controller::class,'index']);
 
 
 require __DIR__.'/users/profiles.php';
+require __DIR__.'/Admin/checkingstage.php';
 require __DIR__.'/auth.php';
+
