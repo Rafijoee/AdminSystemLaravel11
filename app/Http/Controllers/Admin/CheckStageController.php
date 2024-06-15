@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Categories;
 use App\Models\Stages;
 use App\Models\Teams;
+use App\Models\TeamSubmissions;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -62,6 +63,10 @@ class CheckStageController extends Controller
         Teams::where('id', $id)->update([
             'stage_id' => $request->stage,
             'verified_status' => $request->verification,
+        ]);
+
+        TeamSubmissions::where('id', $id)->update([
+            'stage_id' => $request->stage,
         ]);
     
         $team = Teams::findOrFail($id); // Tidak perlu memuat ulang data tim

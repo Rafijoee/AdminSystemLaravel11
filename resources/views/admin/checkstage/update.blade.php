@@ -60,7 +60,7 @@
                                     <select name="stage" class="w-40 border-none bg-transparent focus:outline-none">
                                         <option value="1" {{ $team->stages_id == 1 ? 'selected' : '' }}>Stages 1</option>
                                         <option value="2" {{ $team->stages_id == 2  ? 'selected' : '' }}>Stages 2</option>
-                                        <option value="3" {{ $team->stages_id == 3  ? 'selected' : '' }}>Final</option>
+                                        <option value="3" {{ $team->stages_id == 3  ? 'selected' : '' }}>Stage 3</option>
                                     </select>
                                 </td>
                                 <td>

@@ -160,7 +160,7 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('checkstage.edit', $stage1->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                <a href="{{ route('checkstage.edit', $stage2->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                             </td>
                         </tr>
                         @endforeach
@@ -222,7 +222,7 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('checkstage.edit', $stage1->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                <a href="{{ route('checkstage.edit', $stage3->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                             </td>
                         </tr>
                         @endforeach

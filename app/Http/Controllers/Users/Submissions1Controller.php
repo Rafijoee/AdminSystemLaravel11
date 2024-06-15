@@ -52,7 +52,7 @@ class Submissions1Controller extends Controller
                         unlink($fileOnUpload);
                     }
                 }
-
+                
                 $file = $request->file('submission1');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
