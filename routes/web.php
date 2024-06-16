@@ -23,29 +23,29 @@ Route::get('/', function () {
 });
 
 // Dashboard - mada
-Route::get('/dashboard', function () { //get untuk path di browser #1 peserta
-    return view('dashboard.index'); // path ke file yang dirun
-})->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/teamdata', function () { // #2 Team data
     return view('dashboard.team'); // 
-});
+})->middleware(['auth', 'verified']);
 Route::get('/submission', function () { // #3 Submission
     return view('dashboard.submission'); //
-});
+})->middleware(['auth', 'verified']);
 
 Route::get('/dashboard2', function () {
     return view('dashboard'); // awalnya dashboard aja
 })->middleware(['auth', 'verified']);
 
 
-Route::get('/submissions1', [UsersSubmissions1Controller::class,'index']);
+Route::get('/submissions1', [UsersSubmissions1Controller::class, 'index']);
 // Route::post('/submissions1/store', [Sub1Controller::class,'store']);
 
 
 
 
-require __DIR__.'/users/profiles.php';
-require __DIR__.'/users/payment.php';
-require __DIR__.'/Admin/checkingstage.php';
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/users/profiles.php';
+require __DIR__ . '/users/payment.php';
+require __DIR__ . '/Admin/checkingstage.php';
+require __DIR__ . '/Admin/checkingpayment.php';
+require __DIR__ . '/auth.php';

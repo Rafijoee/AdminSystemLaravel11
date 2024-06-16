@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Payments;
 use App\Models\Stages;
 use App\Models\Teams;
 use App\Models\TeamSubmissions;
@@ -22,7 +23,6 @@ class CheckStageController extends Controller
         $stages2 = Teams::whereIn('stage_id', [2, 5, 8, 11])->get();
         $stages3 = Teams::whereIn('stage_id', [3, 6, 9, 12])->get();
         
-
         return view('admin.checkstage.index', compact('stages1', 'stages2', 'stages3'));
     }
 
