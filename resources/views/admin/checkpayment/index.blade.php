@@ -20,7 +20,7 @@
             <h1 class="text-4xl font-bold justify-center flex m-10">Data Tims</h1>
             <hr class="border-2 ">
             <div class="flex flex-col bg-white m-10">
-                <h1 class="text-2xl font-bold mx-10 mt-10 mb-6">KTI</h1>
+                <h1 class="text-2xl font-bold mx-10 mt-10 mb-6">Scientific Paper</h1>
                 <hr class="border-2 mb-3 ">
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-5">
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -59,7 +59,7 @@
                                     {{ $kti->payment_path }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                    <a href="{{ route('checkpayment.edit', $kti->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -106,7 +106,7 @@
                                 {{ $busplan->payment_path }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                <a href="{{ route('checkpayment.edit', $busplan->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                             </td>
                         </tr>
                         @endforeach
@@ -152,7 +152,53 @@
                                 {{ $ux->payment_path }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                <a href="{{ route('checkpayment.edit', $ux->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="flex flex-col bg-white m-10">
+                <h1 class="text-2xl font-bold mx-10 mt-10 mb-6">Software Development</h1>
+                <hr class="border-2 mb-8 ">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-[#40C6A1] dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                No.
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Team Id
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Status
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Payment_path
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($ppls as $index => $ppl)
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <td class="px-6 py-4">
+                                {{ $index + 1 }}
+                            </td>
+                            <td class="px-6 py-4 capitalize">
+                                {{ $ppl->team_id }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $ppl->status }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $ppl->payment_path }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="{{ route('checkpayment.edit', $ppl->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                             </td>
                         </tr>
                         @endforeach
