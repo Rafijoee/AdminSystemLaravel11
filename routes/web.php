@@ -29,8 +29,8 @@ Route::get('/dashboard', function () {
 Route::get('/teamdata', function () { // #2 Team data
     return view('dashboard.team'); // 
 })->middleware(['auth', 'verified']);
-Route::get('/submission', function () { // #3 Submission
-    return view('dashboard.submission'); //
+Route::get('/submission', function () { 
+    return view('dashboard.submission');
 })->middleware(['auth', 'verified']);
 
 Route::get('/dashboard2', function () {

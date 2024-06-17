@@ -17,7 +17,7 @@
         </div>
         @endif
         <div class="bg-[#F2FBFF] rounded-lg border-2 w-full h-auto">
-            <h1 class="text-4xl font-bold justify-center flex m-10">Data Tims</h1>
+            <h1 class="text-4xl font-bold justify-center flex m-10">Data Pembayaran Tims</h1>
             <hr class="border-2 ">
             <div class="flex flex-col bg-white m-10">
                 <h1 class="text-2xl font-bold mx-10 mt-10 mb-6">Scientific Paper</h1>
