@@ -3,7 +3,7 @@
         <div class="bg-[#F2FBFF] rounded-lg border-2 w-full h-auto">
             <h1 class="text-4xl font-bold justify-center flex m-10">Data Tim {{$teams->team_name}}</h1>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-5">
-                <form action="{{ route('checkpayment.update', $payments->id) }}" method="POST">
+                <form action="{{ route('checkpayment3.update', $payments->id) }}" method="POST">
                     @method('patch')
                     @csrf
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

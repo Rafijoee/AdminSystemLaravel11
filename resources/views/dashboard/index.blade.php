@@ -1,6 +1,6 @@
 <x-dashboard.layout>
    <div class="flex items-center justify-center h-48 mb-4 rounded">
-      <img src="{{ asset('images/sample-header-form.png') }}" alt="itc-banner">
+      <img src="{{ asset('images/sample-header-form.png') }}" alt="itc-banner" class="w-full">
    </div>
    
    <div class="grid grid-cols-3 gap-4 mb-4">

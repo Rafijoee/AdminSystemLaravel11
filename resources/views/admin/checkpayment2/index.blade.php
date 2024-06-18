@@ -59,7 +59,7 @@
                                     {{ $kti->payment_path }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ route('checkpayment.edit', $kti->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                    <a href="{{ route('checkpayment2.edit', $kti->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -106,7 +106,7 @@
                                 {{ $busplan->payment_path }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('checkpayment.edit', $busplan->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                <a href="{{ route('checkpayment2.edit', $busplan->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                             </td>
                         </tr>
                         @endforeach
@@ -152,7 +152,7 @@
                                 {{ $ux->payment_path }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('checkpayment.edit', $ux->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                <a href="{{ route('checkpayment2.edit', $ux->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                             </td>
                         </tr>
                         @endforeach
@@ -198,7 +198,7 @@
                                 {{ $ppl->payment_path }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('checkpayment.edit', $ppl->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
+                                <a href="{{ route('checkpayment2.edit', $ppl->id) }}" class="font-medium text-[#40C6A1] hover:underline">Edit</a>
                             </td>
                         </tr>
                         @endforeach

@@ -7,7 +7,7 @@ use App\Models\Payments;
 use App\Models\Teams;
 use Illuminate\Http\Request;
 
-class CheckPaymentController extends Controller
+class CheckPayment2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class CheckPaymentController extends Controller
             $ux_bayars[] = Teams::where('id', $ux->team_id)->value('team_name');
         }
 
-        return view('admin.checkpayment.index', compact('ktis', 'busplans', 'ppls', 'uxs', 'kti_bayars', 'busplan_bayars', 'ppl_bayars', 'ux_bayars'));
+        return view('admin.checkpayment2.index', compact('ktis', 'busplans', 'ppls', 'uxs', 'kti_bayars', 'busplan_bayars', 'ppl_bayars', 'ux_bayars'));
     }
 
     /**
@@ -69,7 +69,7 @@ class CheckPaymentController extends Controller
     {
         $payments = Payments::findOrFail($id);
         $teams = Teams::where('id', $payments->team_id)->first();
-        return view ('admin.checkpayment.update', compact('payments', 'teams'));
+        return view ('admin.checkpayment2.update', compact('payments', 'teams'));
     }
 
     /**
@@ -90,7 +90,7 @@ class CheckPaymentController extends Controller
         // Dapatkan data tim tanpa query tambahan
         $team = $payment->team;
     
-        return redirect()->route('checkpayment.index')->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
+        return redirect()->route('checkpayment2.index')->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
     }
 
     /**
