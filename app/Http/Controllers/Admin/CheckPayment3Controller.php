@@ -69,7 +69,7 @@ class CheckPayment3Controller extends Controller
     {
         $payments = Payments::findOrFail($id);
         $teams = Teams::where('id', $payments->team_id)->first();
-        return view ('admin.checkpayment2.update', compact('payments', 'teams'));
+        return view('admin.checkpayment2.update', compact('payments', 'teams'));
     }
 
     /**
@@ -80,24 +80,31 @@ class CheckPayment3Controller extends Controller
         $request->validate([
             'status' => 'required|in:verified,unverified'
         ]);
-    
+
         // Update status pembayaran
         $payment = Payments::findOrFail($id);
         $payment->update([
-            'status' => $request->status,
+            'status'=> $request->status,
         ]);
-    
+
         // Dapatkan data tim tanpa query tambahan
         $team = $payment->team;
-    
+
         return redirect()->route('checkpayment3.index')->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(string $id)
     {
-        //
+        $payment = Payments::findOrFail($id);
+        $team = $payment->team;
+
+        // Delete the payment
+        $payment->delete();
+
+        return redirect()->route('checkpayment3.index')->with('success', 'Data tim ' . $team->team_name . ' telah dihapus.');
     }
 }
