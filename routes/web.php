@@ -33,7 +33,7 @@ Route::get('/submission', function () {
     return view('dashboard.submission');
 })->middleware(['auth', 'verified']);
 Route::get('/checkpayment', function () { 
-    return view('dashboard.checkpayment')->name('checkpayment');
+    return view('dashboard.checkpayment');
 })->middleware(['auth', 'verified']);
 
 Route::get('/dashboard2', function () {

@@ -90,7 +90,7 @@ class CheckPayment2Controller extends Controller
         // Dapatkan data tim tanpa query tambahan
         $team = $payment->team;
     
-        return redirect()->route('checkpayment2.index')->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
+        return redirect()->route('checkpayment2.index')->with('success', 'Data Pembayaran  ' . $team->team_name . ' telah diubah.');
     }
 
     /**

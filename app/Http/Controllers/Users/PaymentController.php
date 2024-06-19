@@ -77,7 +77,7 @@ class PaymentController extends Controller
             DB::commit();
 
             // Redirect ke halaman dashboard
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')->with('succes', 'Berhasil upload file pembayaran');
         } catch (\Exception $e) {
             // Rollback transaksi jika terjadi kesalahan
             DB::rollBack();

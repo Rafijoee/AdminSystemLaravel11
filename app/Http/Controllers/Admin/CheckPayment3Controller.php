@@ -69,7 +69,7 @@ class CheckPayment3Controller extends Controller
     {
         $payments = Payments::findOrFail($id);
         $teams = Teams::where('id', $payments->team_id)->first();
-        return view('admin.checkpayment2.update', compact('payments', 'teams'));
+        return view('admin.checkpayment3.update', compact('payments', 'teams'));
     }
 
     /**
@@ -90,7 +90,7 @@ class CheckPayment3Controller extends Controller
         // Dapatkan data tim tanpa query tambahan
         $team = $payment->team;
 
-        return redirect()->route('checkpayment3.index')->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
+        return redirect()->route('checkpayment3.index')->with('success', 'Data Pembayaran ' . $team->team_name . ' telah diubah.');
     }
 
     /**
