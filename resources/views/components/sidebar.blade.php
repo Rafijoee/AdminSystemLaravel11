@@ -56,7 +56,7 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Submission</span>
                     </a>
                 </li>
-                @if (auth()->user()->teams->stage_id != 1 && auth()->user()->teams->stage_id != 4 && auth()->user()->teams->stage_id != 7 && auth()->user()->teams->stage_id != 11)
+                @if (auth()->user()?->teams?->stage_id != 1 && auth()?->user()?->teams?->stage_id != 4 && auth()?->user()?->teams?->stage_id != 7 && auth()?->user()?->teams?->stage_id != 11)
 
                 <li>
                     <a href="{{route('payment.index')}}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
