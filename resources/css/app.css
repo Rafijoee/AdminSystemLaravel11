@@ -56,3 +56,6 @@
         animation-iteration-count: infinite;
     }
 }
+.active {
+    @apply bg-[#185141] text-white;
+}
