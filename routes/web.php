@@ -23,9 +23,7 @@ Route::get('/', function () {
 });
 
 // Dashboard - mada
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [ProfilesController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/teamdata', function () { // #2 Team data
     return view('dashboard.team'); // 
 })->middleware(['auth', 'verified']);

@@ -2,21 +2,41 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProfileRequest;
-use App\Models\Categories;
-use App\Models\Members;
 use App\Models\Teams;
-use App\Models\TeamSubmissionsDetails;
+use App\Models\Stages;
+use App\Models\Members;
+use App\Models\Categories;
 use App\Models\Universities;
-use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Cache\Store;
+use App\Models\TeamSubmissionsDetails;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreProfileRequest;
 
 class ProfilesController extends Controller
 {
+    public function dashboard(){
+        $user = Auth::user()->id;
+        $team = Teams::where('user_id', $user)->first();
+        $member = Members::where('team_id', $team?->id)->get();
+        $universities = Universities::all();
+        $captain = $member->where('member_role', 'ketua')->first();
+        $university = $universities->where('id', $captain?->university_id)->first();
+        $anggotas = $member->where('member_role', 'anggota');
+        if($anggotas->count() == 0){
+            $anggotas = null;
+        }
+        if($member->count() == 0){
+            $member = null;
+        }
+        $stage = Stages::where('id', $team?->stage_id)->first();
+
+        return view('dashboard.index', compact('member', 'university', 'captain', 'team', 'anggotas', 'stage'));
+    }
+
     public function index()
     {
         $user_id = Auth::id();
