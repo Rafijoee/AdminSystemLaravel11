@@ -17,15 +17,15 @@
     <div class="container  mx-auto mt-20 flex justify-center">
         <div class="container-main bg-slate-50 w-2/3 relative justify-center mb-10 rounded-md"> 
             <div class="content-atas mb-6 text-center mt-10">
-                <a href="/register" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-[232px]">‎  REGISTER  ‎</a>
-                <a href="{{ route('download', ['name' => 'RULE BOOK BUSINESS PLAN ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-[148px]">‎  RULEBOOK  ‎</a>
-                <a href="{{ route('proposal', ['filename' => 'PROPOSAL BUSINESS PLAN ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-16">‎  PROPOSAL  ‎</a>
-                <a href="{{ route('proposal', ['filename' => 'BMC - BUSINESS PLAN ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-2">‎  BMC  ‎</a>
+                <a href="/register" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-[345px]">‎  REGISTER  ‎</a>
+                <a href="{{ route('download', ['name' => 'RULE BOOK ICT SCIENTIFIC PAPER ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-[260px]">‎  RULEBOOK  ‎</a>
+                <a href="{{ route('proposal', ['filename' => 'TAHAP 1 - TEMPLATE ABSTRAK ICT SCIENTIFIC PAPER.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-[135px]">‎  PROPOSAL TAHAP 1 ‎</a>
+                <a href="{{ route('proposal', ['filename' => 'TAHAP 2 - TEMPLATE FULL PAPER ICT SCIENTIFIC PAPER.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-2">‎  PROPOSAL TAHAP 2 ‎</a>
                 <a href="/riche" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 left-0 mt-2 ml-2">‎  KEMBALI  ‎</a>
-                <p class="text-lg mb-4 font-medium">ICT BUSINESS DEVELOPMENT</p>
+                <p class="text-lg mb-4 font-medium">ICT SCIENTIFIC PAPER</p>
                 <p class="mb-6 text-xs">Register Fee <span class="border-2 rounded-md border-none bg-red-100 text-red-500">‎ RP 50.000 ‎</span> / Team</p>
             </div>
-            <p class="mt-20 mb-4 mx-auto text-xs font-thin text-center w-3/5">Bisnis TIK adalah Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, provident!</p>
+            <p class="mt-20 mb-4 mx-auto text-xs font-light text-center w-3/5 text-gray-400">Scientific Paper adalah Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, provident!</p>
             <div class="mb-4 border-b border-gray-200 dark:border-gray-700 flex justify-center">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes="text-purple-600 hover:text-purple-600 dark:text-purple-500 dark:hover:text-purple-500 border-purple-600 dark:border-purple-500" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
                     <li class="me-2" role="presentation">
@@ -53,7 +53,7 @@
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Tahap 1</h3>
                                 <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">June 29th, 2024 - July 29th, 2024</time>
-                                <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">1. BMC (PDF)</p>
+                                <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">1. Proposal (PDF)</p>
                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">2. Orisinil (PDF)</p>
                             </li>
                             <li class="mb-10 ms-6">            
@@ -88,7 +88,7 @@
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Tahap 2</h3>
                                 <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 12th, 2024 - August 28th, 2024</time>
-                                <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">1. Proposal (PDF)</p>
+                                <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">1. Full Paper (PDF)</p>
                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">2. Poster (PDF)</p>
                             </li>
                             <li class="mb-10 ms-6">            
@@ -121,7 +121,7 @@
                                         </svg>
                                     </span>
                                 </div>
-                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Pengumpulan PPT untuk presentasi (dalam bentuk PDF)</h3>
+                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Pengumpulan PPT untuk presentasi (dalam bentuk pdf)</h3>
                                 <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">September 12th, 2024 - September 21st, 2024</time>
                             </li>
                             <li class="mb-10 ms-6">            

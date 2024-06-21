@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Submissions1Controller;
 use App\Http\Controllers\Users\ProfilesController;
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('detail_lomba.index');
 });
+
+Route::get('/rulebook/{name}', [Controller::class, 'download'])->name('download');
+Route::get('/proposal/{filename}', [Controller::class, 'download2'])->name('proposal');
 
 // Dashboard - mada
 Route::get('/dashboard', [ProfilesController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
