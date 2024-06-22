@@ -22,7 +22,6 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Dashboard</span>
                     </a>
                 </li>
-                @if(auth()->user()->hasRole('admin'))
                 <li>
                     <a href="/checkstage" class="{{ Request::is('checkstage') ? 'active' : '' }} flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
@@ -32,7 +31,6 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Check Stage</span>
                     </a>
                 </li>
-                @endif
                 <li>
                     <a href="{{route('profile.index')}}" class="{{ Request::is('profile') || Request::is('profile/create') ? 'active' : '' }} flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -59,7 +57,6 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->hasRole('admin'))
                 <li>
                     <a href="/checkpayment" class="{{ Request::is('checkpayment') ? 'active' : '' }} flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -68,7 +65,6 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Check Payment</span>
                     </a>
                 </li>
-                @endif
 
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">

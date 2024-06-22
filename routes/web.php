@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('detail_lomba.index');
+    return view('welcome');
 });
 
 Route::get('/rulebook/{name}', [Controller::class, 'download'])->name('download');
