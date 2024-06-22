@@ -18,7 +18,25 @@
       </button>
    </div>
    @endif
-   <div class="grid grid-cols-3 gap-4 mb-4">
+   <div class="logos">
+      <div class="logos-slide">
+         <img src="{{asset('images/logo-itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
+         <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
+         <img src="{{asset('images/logo-itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
+         <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
+      </div>
+      <div class="logos-slide ml-24">
+         <img src="{{asset('images/logo-itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
+         <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
+         <img src="{{asset('images/logo-itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
+         <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
+      </div>
+   </div>
+   <div class="grid grid-cols-3 gap-4 mb-4 mt-4">
       <div class="flex items-center justify-center rounded bg-white border border-gray-200 dark:bg-gray-800 h-36">
          <p class="text-black dark:text-white text-center">
             @if($captain)
@@ -102,3 +120,52 @@
          </div>
    </div>
 </x-dashboard.layout>
+
+<style>
+   @keyframes slide {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(-114.5%);
+      }
+   }
+
+   .logos {
+      overflow: hidden;
+      background-color: white;
+      padding: 20px 0;
+      white-space: nowrap;
+      position: relative;
+   }
+
+   .logos:before,
+   .logos:after {
+      position: absolute;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      content: "";
+      z-index: 2;
+   }
+
+   .logos:before {
+      left: 0;
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+   }
+
+   .logos:after {
+      right: 0;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+   }
+
+   .logos-slide {
+      display: inline-flex;
+      animation: 20s slide infinite linear;
+   }
+
+   .logos-slide img {
+      height: 50px;
+      margin: 0 40px;
+   }
+</style>
