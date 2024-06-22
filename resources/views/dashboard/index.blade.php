@@ -77,8 +77,8 @@
             @if ($anggotas)               
                <h5 class="text-5xl font-bold text-gray-900 dark:text-white mb-10">Members</h5>
                @foreach ($anggotas as $anggota)
-               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ $anggota->full_name }}</h5>
-               <p class="text-gray-500">{{ $university->university_name }}</p>
+               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ $anggota?->full_name }}</h5>
+               <p class="text-gray-500">{{ $university?->university_name }}</p>
                @endforeach
             @elseif ($anggotas == null)
                <div class="flex flex-col items-center mt-[5dvh]">
@@ -99,7 +99,7 @@
          <div class="w-full p-4 text-center">
             <div class="mb-5 mt-[2dvh]"> <!-- JUMLAH MEMBER -->
                @if ($member)
-               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ count($member) }}</h5>
+               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ count($member?) }}</h5>
                   
                @else
                <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">No Member Yet</h5>
@@ -107,8 +107,8 @@
                <p class="text-gray-500">Members</p>
             </div>
             <div class="mb-5"> <!-- JUMLAH STAGE -->
-               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ $stage->name }}</h5>
-               <p class="text-gray-500">{{ $stage->description }}</p>
+               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ $stage?->name }}</h5>
+               <p class="text-gray-500">{{ $stage?->description }}</p>
             </div>
             <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse font-bold">
                <a href="#" class="w-full sm:w-auto bg-green-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
