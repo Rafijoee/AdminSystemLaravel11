@@ -57,5 +57,5 @@
     }
 }
 .active {
-    @apply bg-[#185141] text-white;
+    @apply bg-[#61C6ED] text-black;
 }

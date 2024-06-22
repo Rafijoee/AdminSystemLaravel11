@@ -28,31 +28,40 @@ class Submissions1Controller extends Controller
         $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_1;
         $categorys_id = $user->teams->team_submission;
 
-        return view('users\submisson1\index', compact('categorys_id','fileOnUpload'));
+        return view('users\submisson1\index', compact('categorys_id', 'fileOnUpload'));
     }
 
     public function store(Request $request)
     {
-        // dd($request->all());
+        // Membuat direktori jika belum ada
         $directory = public_path('submission1');
         if (!File::isDirectory($directory)) {
             File::makeDirectory($directory, 0777, true, true);
         }
+
         try {
-            $validator = $request->validate([
+            $validator = Validator::make($request->all(), [
                 'submission1' => 'required|mimes:zip|max:5120',
+            ], [
+                'submission1.required' => 'The submission file is required.',
+                'submission1.mimes' => 'The submission file must be a ZIP file.',
+                'submission1.max' => 'The submission file size must not exceed 5MB.',
             ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
 
             if ($request->hasFile('submission1')) {
                 $team_id = Auth::user()->teams->firstOrFail()->id;
                 $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_1;
-                
+
                 if (isset($fileOnUpload) && Auth::user()->teams?->team_submission->first()->path_3 != "") {
                     if (file_exists($fileOnUpload)) {
                         unlink($fileOnUpload);
                     }
                 }
-                
+
                 $file = $request->file('submission1');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();

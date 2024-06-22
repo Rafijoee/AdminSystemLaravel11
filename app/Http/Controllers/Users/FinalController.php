@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\TeamSubmissionsDetails;
 use App\Models\TeamSubmissions;
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Auth;
@@ -45,26 +46,35 @@ class FinalController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        // Membuat direktori jika belum ada
         $directory = public_path('final');
         if (!File::isDirectory($directory)) {
             File::makeDirectory($directory, 0777, true, true);
         }
+
         try {
-            $validator = $request->validate([
+            // Validasi input dengan pesan khusus
+            $validator = Validator::make($request->all(), [
                 'final' => 'required|mimes:zip|max:5120',
+            ], [
+                'final.required' => 'The submission file is required.',
+                'final.mimes' => 'The submission file must be a ZIP file.',
+                'final.max' => 'The submission file size must not exceed 5MB.',
             ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
 
             if ($request->hasFile('final')) {
                 $team_id = Auth::user()->teams->firstOrFail()->id;
-                $fileOnUpload = Auth::user()->teams?->team_submission->first()->path_3;                
-                
+                $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_3;
+
                 if (isset($fileOnUpload) && Auth::user()->teams?->team_submission->first()->path_3 != "") {
                     if (file_exists($fileOnUpload)) {
                         unlink($fileOnUpload);
                     }
                 }
-                
 
                 $file = $request->file('final');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
@@ -83,8 +93,8 @@ class FinalController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', 'Gagal mengupload proposal');
         }
-
     }
+
 
     /**
      * Display the specified resource.

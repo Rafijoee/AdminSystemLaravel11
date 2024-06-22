@@ -20,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('detail_lomba.index');
+    return view('welcome');
 });
+
+
 
 Route::get('/rulebook/{name}', [Controller::class, 'download'])->name('download');
 Route::get('/proposal/{filename}', [Controller::class, 'download2'])->name('proposal');
@@ -51,6 +53,7 @@ Route::get('/submissions1', [UsersSubmissions1Controller::class, 'index']);
 
 require __DIR__ . '/users/profiles.php';
 require __DIR__ . '/users/payment.php';
+require __DIR__ . '/users/detailcategory.php';
 require __DIR__ . '/Admin/checkingstage.php';
 require __DIR__ . '/Admin/checkingpayment.php';
 require __DIR__ . '/auth.php';
