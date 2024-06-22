@@ -35,4 +35,8 @@ class Stages extends Model
     {
         return $this->belongsTo(\App\Models\Categories::class);
     }
+    public function team()
+    {
+        return $this->belongsTo(Teams::class);
+    }
 }

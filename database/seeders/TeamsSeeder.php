@@ -27,8 +27,7 @@ class TeamsSeeder extends Seeder
                 'stage_id' => 1,
                 'verified_status' => 'unverified',
                 'category_id' => random_int(1, 4),
-                'total_members' => random_int(2, 3),
-                
+                'total_members' => random_int(2, 3),                
             ]);
         }
     }

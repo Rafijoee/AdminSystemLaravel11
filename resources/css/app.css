@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    font-family: "poppins", sans-serif;
+}
 
-@keyframes slideInLeft{
-    from{
+@keyframes slideInLeft {
+    from {
         transform: translateX(-2500px);
     }
-    to{
+    to {
         transfrom: translateX(1000px);
     }
 }
@@ -20,7 +23,6 @@
     animation-iteration-count: infinite;
 }
 
-
 #awan-2 {
     animation-name: slideInLeft;
     animation-duration: 15s;
@@ -29,12 +31,12 @@
     animation-iteration-count: infinite;
 }
 
-@media screen and (max-width:768px){
-    @keyframes slideInLeft{
-        from{
+@media screen and (max-width: 768px) {
+    @keyframes slideInLeft {
+        from {
             transform: translateX(-2500px);
         }
-        to{
+        to {
             transfrom: translateX(1000px);
         }
     }
@@ -53,4 +55,7 @@
         animation-delay: 8s;
         animation-iteration-count: infinite;
     }
+}
+.active {
+    @apply bg-[#61C6ED] text-black;
 }
