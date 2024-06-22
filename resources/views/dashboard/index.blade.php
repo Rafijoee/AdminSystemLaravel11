@@ -99,7 +99,7 @@
          <div class="w-full p-4 text-center">
             <div class="mb-5 mt-[2dvh]"> <!-- JUMLAH MEMBER -->
                @if ($member)
-               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ count($member?) }}</h5>
+               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ count($member) }}</h5>
                   
                @else
                <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">No Member Yet</h5>
