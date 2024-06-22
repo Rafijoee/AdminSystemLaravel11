@@ -89,8 +89,8 @@
                <p class="text-gray-500">Members</p>
             </div>
             <div class="mb-5"> <!-- JUMLAH STAGE -->
-               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ $stage->name }}</h5>
-               <p class="text-gray-500">{{ $stage->description }}</p>
+               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ $stage?->name }}</h5>
+               <p class="text-gray-500">{{ $stage?->description }}</p>
             </div>
             <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse font-bold">
                <a href="#" class="w-full sm:w-auto bg-green-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
