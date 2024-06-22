@@ -23,6 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/rulebook/{name}', [Controller::class, 'download'])->name('download');
 Route::get('/proposal/{filename}', [Controller::class, 'download2'])->name('proposal');
 
