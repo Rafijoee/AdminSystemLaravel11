@@ -13,11 +13,3 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('submissions1', Submissions1Controller::class);
 });
-
-Route::middleware(['auth'])->group(function () {
-    Route::resource('submissions2', Submission2Controller::class);
-});
-
-Route::middleware(['auth'])->group(function () {
-    Route::resource('final-submission', FinalController::class);
-});
