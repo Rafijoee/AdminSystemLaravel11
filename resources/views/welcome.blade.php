@@ -142,38 +142,33 @@
                 Join us in exploring new frontiers and pushing boundaries in the digital world.
             </p>
             <div class="mt-4 space-x-4 flex justify-center">
-                <a href="#" class="text-white bg-[#61C6ED] hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Register</a>
-                <a href="#" class="text-gray-900 bg-[#61C6ED] hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2">Login</a>
+                <a href="/regiseter" class="text-white bg-[#61C6ED] hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Register</a>
+                <a href="/login" class="text-white bg-[#61C6ED] hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2">Login</a>
             </div>
         </div>
     </header>
 
-    <div id="default-carousel" class="relative w-100vw mx-auto max-w-screen-lg" data-carousel="slide" style="margin-bottom: 50px;">
+    <div id="default-carousel" class="relative w-full mx-auto max-w-screen-lg" data-carousel="slide" style="margin-bottom: 50px;">
         <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Bidang Lomba</h1>
-        <div class="relative w-full h-[30vw] md:w-[90%] md:h-[30vw] mx-auto overflow-hidden rounded-lg" style="z-index: -1;">
+        <div class="relative w-full pb-[50%] md:w-[95%] md:pb-[50%] mx-auto overflow-hidden rounded-lg">
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <a href="/route1">
-                    <img src="{{asset('assets/coba.png')}}" class="absolute block w-full h-full object-cover" alt="...">
+                    <img src="{{asset('assets/kti.png')}}" class="absolute block w-full h-full object-cover" alt="...">
                 </a>
             </div>
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <a href="/route2">
-                    <img src="{{asset('assets/coba.png')}}" class="absolute block w-full h-full object-cover" alt="...">
+                    <img src="{{asset('assets/bistik.png')}}" class="absolute block w-full h-full object-cover" alt="...">
                 </a>
             </div>
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <a href="/route3">
-                    <img src="{{asset('assets/coba.png')}}" class="absolute block w-full h-full object-cover" alt="...">
+                    <img src="{{asset('assets/ppl.png')}}" class="absolute block w-full h-full object-cover" alt="...">
                 </a>
             </div>
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <a href="/route4">
-                    <img src="{{asset('assets/coba.png')}}" class="absolute block w-full h-full object-cover" alt="...">
-                </a>
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <a href="/route5">
-                    <img src="{{asset('assets/coba.png')}}" class="absolute block w-full h-full object-cover" alt="...">
+                    <img src="{{asset('assets/ux.png')}}" class="absolute block w-full h-full object-cover" alt="...">
                 </a>
             </div>
         </div>
@@ -195,43 +190,44 @@
         </button>
     </div>
 
-    <div style="display: flex; justify-content: center;">
-        <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
-            <a href="#">
-                <div class="flex justify-center">
-                    <img class="rounded-t-lg object-cover h-56" src="{{asset('assets/itc.png')}}" alt="" />
-                </div>
-            </a>
-            <div class="p-5">
+    <div class="flex justify-center flex-wrap">
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 p-4">
+            <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">IT Convert 2024</h5>
+                    <div class="relative mx-16 mt-6">
+                        <img class="w-full h-auto rounded-t-lg object-cover" src="{{asset('assets/itc.png')}}" alt="IT Convert 2024" style="max-height: 300px;" />
+                    </div>
                 </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#61C6ED] rounded-lg hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[#61C6ED] dark:hover:bg-[#2BBCEE] dark:focus:ring-blue-800">
-                    Read more
-                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
+                <div class="p-4">
+                    <a href="#">
+                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">IT Convert 2024</h5>
+                    </a>
+                    <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-whitef rounded-lg bg-[#61C6ED] hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-4">
-            <a href="#">
-                <div class="flex justify-center mx-10 my-16">
-                    <img class="rounded-t-lg object-cover h-full" src="{{asset('assets/PICTURE.png')}}" alt="" />
-                </div>
-            </a>
-            <div class="p-5">
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 p-4">
+            <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Picture 2024</h5>
+                    <div class="relative m-10">
+                        <img class="my-[10vh] h-full rounded-t-lg object-cover" src="{{asset('assets/PICTURE.png')}}" alt="Picture 2024" style="max-height: 300px;" />
+                    </div>
                 </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#61C6ED] rounded-lg hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[#61C6ED] dark:hover:bg-[#61C6ED] dark:focus:ring-blue-800">
-                    Read more
-                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
+                <div class="p-4">
+                    <a href="#">
+                        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Picture 2024</h5>
+                    </a>
+                    <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#61C6ED] hover:bg-[#2BBCEE] rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Coming Soon !
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -255,7 +251,7 @@
                         Software Development: proposal (pdf), orisinil (pdf) <br>
                         UX Design: proposal (pdf), orisinil (pdf)
                     </p>
-                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#61C6ED] rounded-lg hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    <a href="/dashboard" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#61C6ED] rounded-lg hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300">
                         Submit now
                         <svg class="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -282,7 +278,7 @@
                         Software Development: prototype, video, poster (pdf) <br>
                         UX Design: prototype, video, poster (pdf)
                     </p>
-                    <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#61C6ED] rounded-lg hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    <a href="/dashboard" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#61C6ED] rounded-lg hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300">
                         Submit now
                         <svg class="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -378,8 +374,8 @@
 
     <script>
         const sponsorImages = [
-            "{{asset('assets/itc.png')}}",
-            "{{asset('assets/picture.png')}}"
+            "{{asset('images/DevOps Powered By Logo_warna-02.png')}}",
+            "{{asset('images/SE_new_logo-01.png')}}"
         ];
         const sliderTrack = document.getElementById('slider-track');
 

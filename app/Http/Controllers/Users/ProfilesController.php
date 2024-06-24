@@ -23,6 +23,7 @@ class ProfilesController extends Controller
         $team = Teams::where('user_id', $user)->first();
         $member = Members::where('team_id', $team?->id)->get();
         $universities = Universities::all();
+        $status = Auth()->user()->teams->verified_status;
         $captain = $member->where('member_role', 'ketua')->first();
         $university = $universities->where('id', $captain?->university_id)->first();
         $anggotas = $member->where('member_role', 'anggota');
@@ -34,7 +35,7 @@ class ProfilesController extends Controller
         }
         $stage = Stages::where('id', $team?->stage_id)->first();
 
-        return view('dashboard.index', compact('member', 'university', 'captain', 'team', 'anggotas', 'stage'));
+        return view('dashboard.index', compact('member', 'university', 'captain', 'team', 'anggotas', 'stage', 'status'));
     }
 
     public function index()

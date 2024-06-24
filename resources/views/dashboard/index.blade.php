@@ -20,18 +20,22 @@
    @endif
    <div class="logos">
       <div class="logos-slide">
-         <img src="{{asset('images/logo-itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('assets/itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
-         <img src="{{asset('images/logo-itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('assets/itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
       </div>
-      <div class="logos-slide ml-24">
-         <img src="{{asset('images/logo-itc.png')}}" alt="itc.png" class="scale-75">
+      <div class="logos-slide">
+         <img src="{{asset('assets/itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
-         <img src="{{asset('images/logo-itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('assets/itc.png')}}" alt="itc.png" class="scale-75">
+         <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
       </div>
@@ -97,7 +101,7 @@
       <!-- BAWAH KANAN -->
       <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-200">
          <div class="w-full p-4 text-center">
-            <div class="mb-5 mt-[2dvh]"> <!-- JUMLAH MEMBER -->
+            <div class="mb-5 mt-[2vh]"> <!-- JUMLAH MEMBER -->
                @if ($member)
                <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ count($member) }}</h5>
                   
@@ -111,9 +115,9 @@
                <p class="text-gray-500">{{ $stage?->description }}</p>
             </div>
             <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse font-bold">
-               <a href="#" class="w-full sm:w-auto bg-green-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
+               <a href="#" class="w-full sm:w-auto bg-sky-400 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
                   <div class="text-left rtl:text-right">
-                     <div class="mb-1 text-sm">Verified</div>
+                     <div class="mb-1 text-sm">{{$status}}</div>
                   </div>
                </a>
             </div>
