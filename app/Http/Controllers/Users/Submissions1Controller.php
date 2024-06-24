@@ -71,7 +71,7 @@ class Submissions1Controller extends Controller
                 $path = $fileLocation . $fileName;
                 TeamSubmissions::where('team_id', $team_id)->update(['path_1' => $path]);
 
-                return redirect()->route('dashboard');
+                return redirect()->route('dashboard')->with('success', 'Anda terhasil mengupload proposal');
             } else {
                 return response()->json(['error' => 'File tidak ditemukan'], 400);
             }

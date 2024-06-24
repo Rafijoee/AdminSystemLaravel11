@@ -53,6 +53,9 @@ Route::get('/submissions1', [UsersSubmissions1Controller::class, 'index']);
 
 require __DIR__ . '/users/profiles.php';
 require __DIR__ . '/users/payment.php';
+require __DIR__ . '/users/submisson1.php';
+require __DIR__ . '/users/submisson2.php';
+require __DIR__ . '/users/final.php';
 require __DIR__ . '/users/detailcategory.php';
 require __DIR__ . '/Admin/checkingstage.php';
 require __DIR__ . '/Admin/checkingpayment.php';
