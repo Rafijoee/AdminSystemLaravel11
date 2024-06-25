@@ -241,7 +241,7 @@
                 <li class="mb-10 ml-6">
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
                     <time class="mb-1 text-sm font-normal leading-none text-gray-400">29 Juni - 29 Juli 2024</time>
-                    <h3 class="text-lg font-semibold text-gray-900">Tahap 1</h3>
+                    <h3 class="text-lg font-semibold text-gray-900">Tahap 1: Gelombang 1</h3>
                     <p class="text-base font-normal text-gray-500 mb-4">
                         ICT Scientific Paper: proposal (pdf), orisinil (pdf) <br>
                         ICT Business Plan: bmc (pdf), orisinil (pdf) <br>
@@ -257,17 +257,34 @@
                 </li>
                 <li class="mb-10 ml-6">
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">29 Juli - 7 Agustus 2024</time>
+                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">30 Juli - 10 Agustus 2024</time>
+                    <h3 class="text-lg font-semibold text-gray-900">Tahap 1: Gelombang 2</h3>
+                    <p class="text-base font-normal text-gray-500 mb-4">
+                        ICT Scientific Paper: proposal (pdf), orisinil (pdf) <br>
+                        ICT Business Plan: bmc (pdf), orisinil (pdf) <br>
+                        Software Development: proposal (pdf), orisinil (pdf) <br>
+                        UX Design: proposal (pdf), orisinil (pdf)
+                    </p>
+                    <a href="/dashboard" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#61C6ED] rounded-lg hover:bg-[#2BBCEE] focus:ring-4 focus:outline-none focus:ring-blue-300">
+                        Submit now
+                        <svg class="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="mb-10 ml-6">
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">17 - 21 Agustus 2024</time>
                     <h3 class="text-lg font-semibold text-gray-900">Penjurian Tahap 1</h3>
                 </li>
                 <li class="mb-10 ml-6">
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">12 Agustus 2024</time>
+                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">22 Agustus 2024</time>
                     <h3 class="text-lg font-semibold text-gray-900">Pengumuman Tahap 1</h3>
                 </li>
                 <li class="mb-10 ml-6">
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">12 - 28 Agustus 2024</time>
+                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">23 Agustus - 3 September 2024</time>
                     <h3 class="text-lg font-semibold text-gray-900">Tahap 2</h3>
                     <p class="text-base font-normal text-gray-500 mb-4">
                         ICT Scientific Paper: full paper (pdf), poster (pdf) <br>
@@ -284,17 +301,17 @@
                 </li>
                 <li class="mb-10 ml-6">
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">30 Agustus - 7 September 2024</time>
+                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">8 - 12 September 2024</time>
                     <h3 class="text-lg font-semibold text-gray-900">Penjurian Tahap 2</h3>
                 </li>
                 <li class="mb-10 ml-6">
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">10 September 2024</time>
+                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">13 September 2024</time>
                     <h3 class="text-lg font-semibold text-gray-900">Pengumuman Tahap 2</h3>
                 </li>
                 <li class="mb-10 ml-6">
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">12 - 21 September 2024</time>
+                    <time class="mb-1 text-sm font-normal leading-none text-gray-400">14 - 23 September 2024</time>
                     <h3 class="text-lg font-semibold text-gray-900">Pengumpulan PPT untuk presentasi (dalam bentuk pdf)</h3>
                 </li>
                 <li class="ml-6">
@@ -303,6 +320,7 @@
                     <h3 class="text-lg font-semibold text-gray-900">Tahap Final (Presentasi)</h3>
                 </li>
             </ol>
+               
         </div>
     </div>
 

@@ -32,63 +32,64 @@ class PaymentController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    // Tentukan direktori tujuan penyimpanan
-    $directory = public_path('paymentsub2');
+    {
+        $request->validate([
+            'paymentsub' => 'required|mimes:png,jpg|max:2048', // validasi untuk file png dan jpg dengan ukuran maksimal 2MB
+        ]);
 
-    // Cek apakah direktori ada, jika tidak buat direktori tersebut
-    if (!File::isDirectory($directory)) {
-        File::makeDirectory($directory, 0777, true, true);
-    }
+        // Tentukan direktori tujuan penyimpanan
+        $directory = public_path('paymentsub2');
 
-    // Cek apakah ada file yang diupload
-    if ($request->hasFile('paymentsub')) {
-        DB::beginTransaction();
-        try {
-            // Ambil nama tim dari user yang sedang login
-            $team_name = Auth::user()->teams->team_name;
-            $directory = 'paymentsub2/'; // Direktori tujuan
-
-            // Ambil file yang diupload
-            $file = $request->file('paymentsub');
-            $fileExtension = $file->getClientOriginalExtension();
-            $fileName = $team_name . '.' . $fileExtension;
-
-            // Simpan file ke direktori tujuan
-            $file->move(public_path($directory), $fileName);
-
-            // Buat path untuk penyimpanan di database
-            $paymentsub_path = $directory . $fileName;
-
-            // Ambil data tambahan dari user yang sedang login
-            $team_id = Auth::user()->teams->id;
-            $stage_id = Auth::user()->teams->stage_id;
-            $status = 'unverified';
-
-            // Simpan data pembayaran ke database dengan path yang benar
-            $payments = Payments::create([
-                'team_id' => $team_id,
-                'stage_id' => $stage_id,
-                'payment_path' => $paymentsub_path, // Menggunakan path yang benar dari file yang di-upload
-                'status' => $status
-            ]);
-
-            // Commit transaksi ke database
-            DB::commit();
-
-            // Redirect ke halaman dashboard
-            return redirect()->route('dashboard')->with('succes', 'Berhasil upload file pembayaran');
-        } catch (\Exception $e) {
-            // Rollback transaksi jika terjadi kesalahan
-            DB::rollBack();
-            // Tampilkan pesan kesalahan untuk debugging
-            return redirect()->back()->with('error', 'Gagal upload file pembayaran: ' . $e->getMessage());
+        // Cek apakah direktori ada, jika tidak buat direktori tersebut
+        if (!File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0777, true, true);
         }
-    } else {
-        // Tampilkan pesan kesalahan jika file tidak ditemukan
-        return redirect()->back()->with('error', 'File pembayaran tidak ditemukan');
+
+        // Cek apakah ada file yang diupload
+        if ($request->hasFile('paymentsub')) {
+            DB::beginTransaction();
+            try {
+                // Ambil nama tim dari user yang sedang login
+                $team_name = Auth::user()->teams->team_name;
+                $stage_id = Auth::user()->teams->stage_id; // Ambil stage_id dari user
+                $file = $request->file('paymentsub');
+                $fileExtension = $file->getClientOriginalExtension();
+                $fileName = $team_name . '_' . $stage_id . '.' . $fileExtension; // Format nama file yang diinginkan
+
+                // Simpan file ke direktori tujuan
+                $file->move($directory, $fileName);
+
+                // Buat path untuk penyimpanan di database
+                $paymentsub_path = 'paymentsub2/' . $fileName;
+
+                // Ambil data tambahan dari user yang sedang login
+                $team_id = Auth::user()->teams->id;
+                $status = 'unverified';
+
+                // Simpan data pembayaran ke database dengan path yang benar
+                $payments = Payments::create([
+                    'team_id' => $team_id,
+                    'stage_id' => $stage_id,
+                    'payment_path' => $paymentsub_path, // Menggunakan path yang benar dari file yang di-upload
+                    'status' => $status
+                ]);
+
+                // Commit transaksi ke database
+                DB::commit();
+
+                // Redirect ke halaman dashboard
+                return redirect()->route('dashboard')->with('success', 'Berhasil upload file pembayaran');
+            } catch (\Exception $e) {
+                // Rollback transaksi jika terjadi kesalahan
+                DB::rollBack();
+                // Tampilkan pesan kesalahan untuk debugging
+                return redirect()->back()->with('error', 'Gagal upload file pembayaran: ' . $e->getMessage());
+            }
+        } else {
+            // Tampilkan pesan kesalahan jika file tidak ditemukan
+            return redirect()->back()->with('error', 'File pembayaran tidak ditemukan');
+        }
     }
-}
 
 
     /**

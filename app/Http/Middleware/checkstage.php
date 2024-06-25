@@ -38,7 +38,5 @@ class checkstage
         // Jika pengguna tidak memiliki tim atau tidak login, lanjutkan request
         return $next($request);
 
-        // Jika pengguna tidak memiliki tim atau tidak login, lanjutkan request
-        return $next($request);
     }
 }

@@ -2,7 +2,7 @@
 
     <body class="bg-gray-100">
         <div class="container mx-auto p-4">
-            <h1 class="text-2xl font-bold mb-4">Upload Submission</h1>
+            <h1 class="text-2xl font-bold mb-4">Upload Payemnt</h1>
 
             @if (session('error'))
             <div class="bg-red-500 text-white p-3 rounded mb-4">
