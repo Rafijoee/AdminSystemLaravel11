@@ -48,7 +48,11 @@
             @else
             <span class="font-black text-xl">{{ Auth::user()->name }}</span><br>
             @endif
-            <span class="text-sm font-normal">ICT SCIENTIFIC PAPER</span>
+            @if(is_null($category))
+            <span>Data Kategory belum diisi</span>
+            @else
+            <span>{{ $category }}</span>
+            @endif
          </p>
       </div>
       <div class="flex items-center justify-center rounded bg-white border border-gray-200 dark:bg-gray-800 h-36">
@@ -78,22 +82,22 @@
    <div class="grid grid-cols-2 mb-96 gap-5">
       <div class="w-full text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-200">
          <div class="mb-5 flex flex-col"> <!-- JUMLAH MEMBER -->
-            @if ($anggotas)               
-               <h5 class="text-5xl font-bold text-gray-900 dark:text-white mb-10">Members</h5>
-               @foreach ($anggotas as $anggota)
-               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ $anggota?->full_name }}</h5>
-               <p class="text-gray-500">{{ $university?->university_name }}</p>
-               @endforeach
+            @if ($anggotas)
+            <h5 class="text-5xl font-bold text-gray-900 dark:text-white mb-10">Members</h5>
+            @foreach ($anggotas as $anggota)
+            <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ $anggota?->full_name }}</h5>
+            <p class="text-gray-500">{{ $university?->university_name }}</p>
+            @endforeach
             @elseif ($anggotas == null)
-               <div class="flex flex-col items-center mt-[5dvh]">
-                  <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-[3dvh]">No Member Yet</h5>
-                  <p class="text-gray-500 mb-[3dvh]">You need to fulfill your team data.</p>
-                  <a href="{{route('profile.index')}}" class="w-full sm:w-auto bg-sky-400 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
-                     <div class="text-left rtl:text-right">
-                        <div class="mb-1 text-sm">Team Data</div>
-                     </div>
-                  </a>
-               </div>
+            <div class="flex flex-col items-center mt-[5dvh]">
+               <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-[3dvh]">No Member Yet</h5>
+               <p class="text-gray-500 mb-[3dvh]">You need to fulfill your team data.</p>
+               <a href="{{route('profile.index')}}" class="w-full sm:w-auto bg-sky-400 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
+                  <div class="text-left rtl:text-right">
+                     <div class="mb-1 text-sm">Team Data</div>
+                  </div>
+               </a>
+            </div>
             @endif
          </div>
       </div>
@@ -104,7 +108,7 @@
             <div class="mb-5 mt-[2vh]"> <!-- JUMLAH MEMBER -->
                @if ($member)
                <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">{{ count($member) }}</h5>
-                  
+
                @else
                <h5 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">No Member Yet</h5>
                @endif
@@ -115,14 +119,18 @@
                <p class="text-gray-500">{{ $stage?->description }}</p>
             </div>
             <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse font-bold">
-               <a href="#" class="w-full sm:w-auto bg-sky-400 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
-                  <div class="text-left rtl:text-right">
-                     <div class="mb-1 text-sm">{{$status}}</div>
-                  </div>
+               <a href="{{route('profile.index')}}" class="w-full sm:w-auto bg-sky-400 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-500">
+                  @if(is_null($status) || $status == 'unverified')
+                  <p>unverified</p>
+                  @elseif($status == 'verified')
+                  <p>{{ $status }}</p>
+                  @else
+                  <p>Status tidak diketahui</p>
+                  @endif
                </a>
             </div>
          </div>
-   </div>
+      </div>
 </x-dashboard.layout>
 
 <style>
@@ -130,6 +138,7 @@
       from {
          transform: translateX(0);
       }
+
       to {
          transform: translateX(-114.5%);
       }
