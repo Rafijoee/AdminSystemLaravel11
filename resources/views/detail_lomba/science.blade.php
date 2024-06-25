@@ -23,7 +23,7 @@
                 <a href="{{ route('proposal', ['filename' => 'TAHAP 2 - TEMPLATE FULL PAPER ICT SCIENTIFIC PAPER.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-2">‎  PROPOSAL TAHAP 2 ‎</a>
                 <a href="/" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 left-0 mt-2 ml-2">‎  KEMBALI  ‎</a>
                 <p class="text-lg mb-4 font-medium">ICT SCIENTIFIC PAPER</p>
-                <p class="mb-6 text-xs">Register Fee <span class="border-2 rounded-md border-none bg-red-100 text-red-500">‎ RP 50.000 ‎</span> / Team</p>
+
             </div>
             <p class="mt-20 mb-4 mx-auto text-xs font-light text-center w-3/5 text-gray-400">Scientific Paper adalah Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, provident!</p>
             <div class="mb-4 border-b border-gray-200 dark:border-gray-700 flex justify-center">
@@ -52,7 +52,11 @@
                                     </span>
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Tahap 1</h3>
+                                <p class="block mb-2 text-sm font-normal leading-none text-gray-600 dark:text-gray-500">Gelombang 1</p>
                                 <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">June 29th, 2024 - July 29th, 2024</time>
+                                <br>
+                                <p class="block mb-2 text-sm font-normal leading-none text-gray-600 dark:text-gray-500">Gelombang 2</p>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">July 30th, 2024 - August 10th, 2024</time>
                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">1. Proposal (PDF)</p>
                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">2. Orisinil (PDF)</p>
                             </li>
@@ -65,7 +69,7 @@
                                     </span>
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Penjurian tahap 1</h3>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">July 29th, 2024 - August 7th, 2024</time>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 17th, 2024 - August 21st, 2024</time>
                             </li>
                             <li class="mb-10 ms-6">            
                                 <div class="">
@@ -76,7 +80,7 @@
                                     </span>
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Pengumuman tahap 1</h3>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 12th, 2024</time>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 22nd, 2024</time>
                             </li>
                             <li class="mb-10 ms-6">            
                                 <div class="">
@@ -87,7 +91,7 @@
                                     </span>
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Tahap 2</h3>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 12th, 2024 - August 28th, 2024</time>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 23rd, 2024 - September 3rd, 2024</time>
                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">1. Full Paper (PDF)</p>
                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">2. Poster (PDF)</p>
                             </li>
@@ -100,7 +104,7 @@
                                     </span>
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Penjurian Tahap 2</h3>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">August 30th, 2024 - September 7th, 2024</time>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"> September 8th, 2024 - September 12th, 2024</time>
                             </li>
                             <li class="mb-10 ms-6">            
                                 <div class="">
@@ -111,7 +115,7 @@
                                     </span>
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Pengumuman tahap 2</h3>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">September 10th, 2024</time>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">September 13th, 2024</time>
                             </li>
                             <li class="mb-10 ms-6">            
                                 <div class="">
@@ -122,7 +126,7 @@
                                     </span>
                                 </div>
                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Pengumpulan PPT untuk presentasi (dalam bentuk pdf)</h3>
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">September 12th, 2024 - September 21st, 2024</time>
+                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">September 14th, 2024 - September 23rd, 2024</time>
                             </li>
                             <li class="mb-10 ms-6">            
                                 <div class="">
