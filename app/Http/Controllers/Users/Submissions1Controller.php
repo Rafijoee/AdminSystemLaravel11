@@ -53,7 +53,7 @@ class Submissions1Controller extends Controller
             }
 
             if ($request->hasFile('submission1')) {
-                $team_id = Auth::user()->teams->firstOrFail()->id;
+                $team_id = Auth::user()->teams->id;
                 $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_1;
 
                 if (isset($fileOnUpload) && Auth::user()->teams?->team_submission->first()->path_3 != "") {

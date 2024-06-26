@@ -70,7 +70,7 @@ class ProfilesController extends Controller
             1 => 1,
             2 => 4,
             3 => 7,
-            4 => 11
+            4 => 10
         ];
         $stage_id = isset($category_stage_map[$request->category_id]) ? $category_stage_map[$request->category_id] : null;
 
@@ -130,7 +130,7 @@ class ProfilesController extends Controller
             1 => 1,
             2 => 4,
             3 => 7,
-            4 => 11
+            4 => 10
         ];
         $stage_id = isset($category_stage_map[$request->category_id]) ? $category_stage_map[$request->category_id] : null;
 
