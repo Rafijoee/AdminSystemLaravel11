@@ -140,7 +140,7 @@
       }
 
       to {
-         transform: translateX(-114.5%);
+         transform: translateX(-100%);
       }
    }
 
