@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('team_submissions', function (Blueprint $table) {            
-            $table->string('path_1');
-            $table->string('path_2');
-            $table->string('path_3');                        
+            $table->string('path_1')->nullable();
+            $table->string('path_2')->nullable();
+            $table->string('path_3')->nullable();                        
         });
     }
 

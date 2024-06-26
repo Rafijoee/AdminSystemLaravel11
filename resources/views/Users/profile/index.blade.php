@@ -1,54 +1,37 @@
 <x-dashboard.layout>
-
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            
-            <div class="space-y-6">
-                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Nama Team</label>
-                    <input disabled value="{{$team->team_name}}" name="team_name" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+            <div class="space-y-6 bg-white p-6 rounded-lg shadow-md">
+                <div class="space-y-6">
+                    <label for="team_name" class="block mb-2 text-sm font-medium text-gray-900">Nama Team</label>
+                    <input disabled value="{{$team->team_name}}" name="team_name" type="text" id="team_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                 </div>
                 <div class="mb-6">
-                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">No Telepon</label>
-                    <input disabled value="{{$team->phone}}" name="phone" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                    <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">No Telepon</label>
+                    <input disabled value="{{$team->phone}}" name="phone" type="text" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                 </div>
                 <div class="mb-6">
-                    <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Kategori Lomba</label>
-                    <select name="category_id" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                    <label for="category_id" class="block mb-2 text-sm font-medium text-gray-900">Kategori Lomba</label>
+                    <select name="category_id" id="category_id" disabled class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                         <option selected>{{$team->category->category_name}}</option>
                     </select>
                 </div>
                 @foreach($members as $index => $member)
-                <div>
-                    <h1 class="mb-4">Data {{$member->member_role}} 
-                        @if($index != 2)
-                            <span class="text-red-600">*</span>
-                        @endif
-                    </h1>
-                    <div class="mb-6">
-                        <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Nama Lengkap</label>
-                        <input disabled value="{{$member->full_name}}" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                    <div class="mb-6 p-4 border border-gray-200 rounded-lg">
+                        <h1 class="mb-4 text-lg font-semibold text-gray-900">Data {{$member->member_role}} 
+                            @if($index != 2)
+                                <span class="text-red-600">*</span>
+                            @endif
+                        </h1>
+                        <div class="mb-6">
+                            <label for="name_{{$index}}" class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
+                            <input disabled value="{{$member->full_name}}" type="text" id="name_{{$index}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                        </div>
                     </div>
-                    <div class="mb-6">
-                        <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Universitas</label>
-                    <select  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                        <option selected>{{$member->university->university_name}}</option>
-                    </select>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Upload Kartu tanda mahasiswa</label>
-                        <img src="{{url('storage/app/' . $member->ktm_path)}}" alt="">
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Upload surat keterangan aktif</label>
-                        <a href="{{url('storage/app/' . $member->active_certificate)}}" target="_blank" >Download</a>
-                    </div>
-                </div>
                 @endforeach
 
-                <a href="{{route('profile.edit',$team->id)}}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
+                <a href="{{route('profile.edit', $team->id)}}" class="text-white bg-[#61C6ED] hover:bg-[#2BBCEE] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
             </div>
         </div>
     </div>
-</x-app-layout> 
+</x-dashboard.layout>

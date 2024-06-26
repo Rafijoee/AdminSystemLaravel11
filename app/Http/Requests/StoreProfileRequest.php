@@ -21,7 +21,7 @@ class StoreProfileRequest extends FormRequest
      */
     public function rules(): array
     {
-        $ktm_validate = 'mimes:jpeg,png,jpg,gif,svg|max:2048';
+        $ktm_validate = 'mimes:pdf|max:5120';
         $active_validate = 'mimes:pdf|max:5120';
         return [
                 'team_name' => 'required',
@@ -30,9 +30,7 @@ class StoreProfileRequest extends FormRequest
                 'name_anggota_2' => 'required',
                 'name_anggota_1' => 'required',
                 'name_anggota_3' => 'nullable',
-                'univ_anggota_2' => 'required',
-                'univ_anggota_1' => 'required',
-                'univ_anggota_3' => 'required',
+                'univ' => 'required',
                 'ktm_anggota_2' => 'required|'.$ktm_validate,
                 'ktm_anggota_1' => 'required|'.$ktm_validate,
                 'ktm_anggota_3' => 'nullable|'.$ktm_validate,
