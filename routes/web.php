@@ -30,11 +30,9 @@ Route::get('/proposal/{filename}', [Controller::class, 'download2'])->name('prop
 
 // Dashboard - mada
 Route::get('/dashboard', [ProfilesController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/submission', [ProfilesController::class, 'submission'])->middleware(['auth', 'verified']);
 Route::get('/teamdata', function () { // #2 Team data
     return view('dashboard.team'); // 
-})->middleware(['auth', 'verified']);
-Route::get('/submission', function () { 
-    return view('dashboard.submission');
 })->middleware(['auth', 'verified']);
 Route::get('/checkpayment', function () { 
     return view('dashboard.checkpayment');
