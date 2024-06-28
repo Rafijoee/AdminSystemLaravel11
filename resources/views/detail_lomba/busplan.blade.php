@@ -73,25 +73,25 @@
     <div class="container  mx-auto mt-20 flex justify-center">
         <div class="container-main bg-slate-50 w-2/3 relative justify-center mb-10 rounded-md my-20">
             <div class="content-atas mb-6 text-center mt-10">
-                <a href="/register" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-[232px]">‎ REGISTER ‎</a>
-                <a href="{{ route('download', ['name' => 'RULE BOOK BUSINESS PLAN ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-[148px]">‎ RULEBOOK ‎</a>
-                <a href="{{ route('proposal', ['filename' => 'PROPOSAL BUSINESS PLAN ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-16">‎ PROPOSAL ‎</a>
-                <a href="{{ route('proposal', ['filename' => 'BMC - BUSINESS PLAN ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-2">‎ BMC ‎</a>
+                <a href="/register" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-2">‎ REGISTER ‎</a>
                 <a href="/" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 left-0 mt-2 ml-2">‎ KEMBALI ‎</a>
                 <p class="text-lg mb-4 font-medium">ICT BUSINESS DEVELOPMENT</p>
 
             </div>
-            <p class="mt-20 mb-4 mx-auto text-xs font-thin text-center w-3/5">Bisnis TIK adalah Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, provident!</p>
+            <p class="mt-10 mb-4 mx-auto text-sm font-light text-justify w-3/5 text-gray-400">Business Plan (Rencana Bisnis TIK) menjadi salah satu bidang perlombaan
+pada IT Convert 2024 yang berfokus pada perencanaan model bisnis dengan produk
+TIK. Pada kategori ini, memberikan kesempatan kepada peserta yang memiliki ide
+bisnis, Start Up dan pengembangan usaha yang berorientasi pada jasa maupun produk
+di bidang TIK.</p>
+            <div class="flex justify-center gap-4">
+                <a href="https://drive.google.com/drive/folders/1QXvWfYcCY9U-Z2njj48n8LeUHdmR60Vm?usp=drive_link" class="text-white rounded-md bg-[#61C6ED] hover:bg-[#2BBCEE] px-3 py-2">RULEBOOK</a>
+                <a href="{{ route('proposal', ['filename' => 'PROPOSAL BUSINESS PLAN ITC 2024.docx']) }}" class="text-white rounded-md bg-[#61C6ED] hover:bg-[#2BBCEE] px-3 py-2">PROPOSAL</a>
+                <a href="{{ route('proposal', ['filename' => 'BMC - BUSINESS PLAN ITC 2024.docx']) }}" class="text-white rounded-md bg-[#61C6ED] hover:bg-[#2BBCEE] px-8 py-2">BMC</a>
+            </div>
             <div class="mb-4 border-b border-gray-200 dark:border-gray-700 flex justify-center">
-                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes="text-purple-600 hover:text-purple-600 dark:text-purple-500 dark:hover:text-purple-500 border-purple-600 dark:border-purple-500" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes="text-[#2BBCEE] hover:text-[#2BBCEE] dark:text-[#2BBCEE] dark:hover:text-[#2BBCEE] border-[#2BBCEE] dark:border-[#2BBCEE]" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
                     <li class="me-2" role="presentation">
                         <button class="block p-4 border-b-2 rounded-t-lg" id="profile-styled-tab" data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Schedules</button>
-                    </li>
-                    <li class="me-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-styled-tab" data-tabs-target="#styled-dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Payment</button>
-                    </li>
-                    <li class="me-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="settings-styled-tab" data-tabs-target="#styled-settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Prize</button>
                     </li>
                 </ul>
             </div>

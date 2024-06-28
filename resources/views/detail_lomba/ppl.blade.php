@@ -73,24 +73,27 @@
     <div class="container  mx-auto mt-20 flex justify-center">
         <div class="container-main bg-slate-50 w-2/3 relative justify-center mb-10 rounded-md">
             <div class="content-atas mb-6 text-center mt-10">
-                <a href="/register" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-[185px]">‎ REGISTER ‎</a>
-                <a href="{{ route('download', ['name' => 'RULE BOOK SOFTWARE DEVELOPMENT ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-24">‎ RULEBOOK ‎</a>
-                <a href="{{ route('proposal', ['filename' => 'PROPOSAL SOFTWARE DEVELOPMENT ITC 2024.docx']) }}" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-2">‎ PROPOSAL ‎</a>
+                <a href="/register" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 right-0 mt-2 mr-2">‎ REGISTER ‎</a>
                 <a href="/" class="px-3 py-1 text-[10px] text-center text-white bg-blue-700 rounded-md hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute top-0 left-0 mt-2 ml-2">‎ KEMBALI ‎</a>
                 <p class="text-lg mb-4 font-medium">ICT SOFTWARE DEVELOPMENT</p>
 
             </div>
-            <p class="mt-20 mb-4 mx-auto text-xs font-light text-center w-3/5 text-gray-400">Software Development adalah Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, provident!</p>
+            <p class="mt-10 mb-4 mx-auto text-sm font-light text-justify w-3/5 text-gray-400">Software Development (Pengembangan Perangkat Lunak) merupakan ajang kompetisi
+yang berfokus pada pengembangan ide kreatif dan inovatif peserta untuk memberikan solusi
+terhadap sebuah permasalahan yang ada dalam kehidupan sehari-hari dan dituangkan dalam
+bentuk perangkat lunak yang berkualitas tinggi. Harapannya, perangkat lunak yang dihasilkan
+mampu memberikan solusi konkrit terhadap masalah yang ada dan juga memberikan manfaat
+yang signifikan bagi masyarakat. Solusi konkrit tersebut tidak hanya ditunjukkan dalam
+bentuk argumentasi, namun juga harus ditunjang dengan data. Tidak ada batasan mengenai
+platform perangkat lunak.</p>
+            <div class="flex justify-center gap-4">
+                <a href="https://drive.google.com/drive/folders/1QXvWfYcCY9U-Z2njj48n8LeUHdmR60Vm?usp=drive_link" class="text-white rounded-md bg-[#61C6ED] hover:bg-[#2BBCEE] px-3 py-2">RULEBOOK</a>
+                <a href="{{ route('proposal', ['filename' => 'PROPOSAL SOFTWARE DEVELOPMENT ITC 2024.docx']) }}" class="text-white rounded-md bg-[#61C6ED] hover:bg-[#2BBCEE] px-3 py-2">PROPOSAL</a>
+            </div>
             <div class="mb-4 border-b border-gray-200 dark:border-gray-700 flex justify-center">
-                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes="text-purple-600 hover:text-purple-600 dark:text-purple-500 dark:hover:text-purple-500 border-purple-600 dark:border-purple-500" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-styled-tab" data-tabs-toggle="#default-styled-tab-content" data-tabs-active-classes="text-[#2BBCEE] hover:text-[#2BBCEE] dark:text-[#2BBCEE] dark:hover:text-[#2BBCEE] border-[#2BBCEE] dark:border-[#2BBCEE]" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
                     <li class="me-2" role="presentation">
                         <button class="block p-4 border-b-2 rounded-t-lg" id="profile-styled-tab" data-tabs-target="#styled-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Schedules</button>
-                    </li>
-                    <li class="me-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-styled-tab" data-tabs-target="#styled-dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Payment</button>
-                    </li>
-                    <li class="me-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="settings-styled-tab" data-tabs-target="#styled-settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Prize</button>
                     </li>
                 </ul>
             </div>
