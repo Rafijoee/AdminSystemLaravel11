@@ -15,6 +15,7 @@ use Illuminate\Contracts\Cache\Store;
 use App\Models\TeamSubmissionsDetails;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProfileRequest;
+use App\Models\Payments;
 use App\Models\TeamSubmissions;
 
 class ProfilesController extends Controller
@@ -23,13 +24,22 @@ class ProfilesController extends Controller
     {
         $user = Auth::user()->id;
         $team = Teams::where('user_id', $user)->first();
+        $team_id = $team?->id;
+        $verif = $team?->verified_status;
+        $payment = Payments::where('team_id', $team_id)
+            ->whereIn('stage_id', [2, 5, 8, 11])
+            ->first();
+        $payment2 = Payments::where('team_id', $team_id)
+            ->whereIn('stage_id', [3, 6, 9, 12])
+            ->first();
         $member = Members::where('team_id', $team?->id)->get();
-        $universities = Universities::all();
+        $orang = Members::where('team_id', $team?->id)->first();
+        $university = $orang?->universitas;
         $category = $team?->category?->category_name;
         $status = Auth()->user()?->teams?->verified_status;
+        $team_name = $team?->team_name;
         $captain = $member->where('member_role', 'ketua')->first();
-        $university = $universities->where('id', $captain?->university_id)->first();
-        $anggotas = $member->where('member_role', 'anggota');
+        $anggotas = $member;
         if ($anggotas->count() == 0) {
             $anggotas = null;
         }
@@ -38,7 +48,8 @@ class ProfilesController extends Controller
         }
         $stage = Stages::where('id', $team?->stage_id)->first();
 
-        return view('dashboard.index', compact('member', 'university', 'captain', 'team', 'anggotas', 'stage', 'status', 'category'));
+
+        return view('dashboard.index', compact('member', 'university', 'captain', 'team', 'anggotas', 'stage', 'status', 'category', 'verif', 'payment', 'payment2', 'team_name'));
     }
 
     public function index()
@@ -135,7 +146,7 @@ class ProfilesController extends Controller
         return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ'));
     }
 
-    public function update($id, StoreProfileRequest $request)
+    public function update(StoreProfileRequest $request, string $id)
     {
         $team = Teams::findOrFail($id);
         $total_members = $request->name_anggota_3 ? 3 : 2;
@@ -149,7 +160,7 @@ class ProfilesController extends Controller
 
         DB::beginTransaction();
         try {
-            $team::update([
+            $team->update([
                 'team_name' => $request->team_name,
                 'phone' => $request->phone,
                 'category_id' => $request->category_id,
@@ -173,19 +184,17 @@ class ProfilesController extends Controller
                     $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
                 }
 
-                $member::update([
+                $member->update([
                     'full_name' => $name,
                     'universitas' => $univ,
                     'ktm_path' => $ktm_path,
                     'active_certificate' => $active_path,
                 ]);
-                dd($member);
             }
 
             DB::commit();
-            return redirect()->with('success', 'Tim berhasil diperbarui!');
+            return redirect('/dashboard')->with('success', 'Tim berhasil diperbarui!');
         } catch (\Exception $e) {
-            dd($e->getMessage());
             DB::rollBack();
             return redirect()->back()->with('error', 'Gagal memperbarui tim');
         }

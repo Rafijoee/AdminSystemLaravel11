@@ -13,8 +13,8 @@
                 </ul>
             </div>
             @endif
-            <form action="{{route('profile2.update', $team->id)}}" method="PUT" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md space-y-6">
-                @method('PUT')
+            <form action="{{ route('profile.update', $team->id) }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md space-y-6">
+            @method('PUT')
                 @csrf
                 <div>
                     <h1 class="text-2xl text-center font-semibold text-gray-900">Edit Profile</h1>
@@ -65,7 +65,7 @@
                 <div class="mb-6">
                     <label for="univ" class="block mb-2 text-sm font-medium text-gray-900">Universitas</label>
                     <input value="{{ old('univ', $univ) }}" name="univ" type="text" id="univ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <span class="text-gray-400"> *Contoh penulisan : Unvirsitas Jember</span>
+                    <span class="text-gray-400"> * Contoh penulisan : Unvirsitas Jember</span>
                     @error('univ')
                     <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
                     @enderror

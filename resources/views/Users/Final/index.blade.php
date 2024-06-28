@@ -49,7 +49,7 @@
                                     to upload</span> or drag and drop</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">ZIP (MAX:5mb)</p>
                         </div>
-                        <input id="dropzone-file" type="file" class="hidden" name="final" />
+                        <input id="dropzone-file" type="file" class="hidden" name="final" accept="application/zip"/>
                     </label>
                 </div>
                 <div id="error-message" class="mt-4 text-left text-red-500"></div>

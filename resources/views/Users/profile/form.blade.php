@@ -13,7 +13,7 @@
                 </ul>
             </div>
             @endif
-            <form action="/profile" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md space-y-6">
+            <form action="{{route('profile.store')}}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md space-y-6">
                 @csrf
                 <div class="space-y-6">
                     <label for="team_name" class="block mb-2 text-sm font-medium text-gray-900">Nama Team</label>
