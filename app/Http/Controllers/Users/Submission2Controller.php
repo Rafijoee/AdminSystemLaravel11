@@ -76,6 +76,7 @@ class Submission2Controller extends Controller
             }
         } catch (\Exception $e) {
             DB::rollBack();
+            dd($e->getMessage());
             return redirect()->back()->with('error', 'Gagal mengupload proposal');
         }
     }

@@ -18,7 +18,7 @@ class Members extends Model
     protected $fillable = [
         'team_id',
         'full_name',
-        'university_id',
+        'universitas',
         'ktm_path',
         'active_certificate',
         'member_role',

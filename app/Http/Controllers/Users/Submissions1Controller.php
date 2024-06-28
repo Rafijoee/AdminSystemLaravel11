@@ -66,9 +66,8 @@ class Submissions1Controller extends Controller
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
                 $fileLocation = 'submission1/' . Auth::user()->teams?->category?->category_name . '/';
-                $file->move(public_path($fileLocation), $fileName);
-
                 $path = $fileLocation . $fileName;
+                $file->move(public_path($fileLocation), $fileName);
                 TeamSubmissions::where('team_id', $team_id)->update(['path_1' => $path]);
 
                 return redirect()->route('dashboard')->with('success', 'Anda terhasil mengupload proposal');

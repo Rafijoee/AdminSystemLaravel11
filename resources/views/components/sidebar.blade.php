@@ -54,7 +54,7 @@
                 </li>
                 @endif
                 @endauth
-                @if (auth()->user()?->teams?->stage_id !== 1 && auth()?->user()?->teams?->stage_id !== null && auth()?->user()?->teams?->stage_id !== 4 && auth()?->user()?->teams?->stage_id !== 7 && auth()?->user()?->teams?->stage_id !== 11 && auth()?->user()?->teams?->stage_id !== null)
+                @if (auth()->user()?->teams?->stage_id !== 1 && auth()?->user()?->teams?->stage_id !== null && auth()?->user()?->teams?->stage_id !== 4 && auth()?->user()?->teams?->stage_id !== 7 && auth()?->user()?->teams?->stage_id !== 10 && auth()?->user()?->teams?->stage_id !== null)
                 <li>
                     <a href="{{route('payment.index')}}" class="{{ Request::is('payment') ? 'active' : '' }} flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#B1E1F0] dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

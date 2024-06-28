@@ -56,10 +56,20 @@ class ProfilesController extends Controller
     public function create()
     {
         $categories = Categories::all();
-        $universities = Universities::all();
+        $universities = Universities::all()->sortByDesc('name');
         $team = null;
         $members = null;
         return view('users.profile.form', compact('categories', 'universities', 'team', 'members'));
+    }
+
+    public function show($id)
+    {
+        $team = Teams::find($id);
+        $members = Members::where('team_id', $team->id)->get();
+        $univ = $members->first()?->universitas;
+        $categories = Categories::all();
+        $universities = Universities::all();
+        return view('users.profile.form', compact('team', 'categories', 'universities', 'members', 'univ'));
     }
 
     public function store(StoreProfileRequest $request)
@@ -87,14 +97,14 @@ class ProfilesController extends Controller
             ]);
 
             for ($i = 1; $i <= $total_members; $i++) {
-                $univ = $request['univ'];
+                $univ = $request->univ;
                 $name = $request['name_anggota_' . $i];
                 $ktm_path = $request->file('ktm_anggota_' . $i)->store($request->team_name . '/ktm');
                 $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
                 Members::create([
                     'team_id' => $team->id,
                     'full_name' => $name,
-                    'university_id' => $univ,
+                    'universitas' => $request->univ,
                     'ktm_path' => $ktm_path,
                     'active_certificate' => $active_path,
                     'member_role' => $i == 1 ? 'ketua' : 'anggota',
@@ -117,9 +127,12 @@ class ProfilesController extends Controller
     public function edit($id)
     {
         $team = Teams::find($id);
+        $team_id = $team->id;
+        $members = Members::where('team_id', $team_id)->get();
+        $univ = $members->first()?->universitas;
         $categories = Categories::all();
         $universities = Universities::all();
-        return view('users.profile.form', compact('team', 'categories', 'universities'));
+        return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ'));
     }
 
     public function update($id, StoreProfileRequest $request)
@@ -136,7 +149,7 @@ class ProfilesController extends Controller
 
         DB::beginTransaction();
         try {
-            $team->update([
+            $team::update([
                 'team_name' => $request->team_name,
                 'phone' => $request->phone,
                 'category_id' => $request->category_id,
@@ -160,17 +173,19 @@ class ProfilesController extends Controller
                     $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
                 }
 
-                $member->update([
+                $member::update([
                     'full_name' => $name,
-                    'university_id' => $univ,
+                    'universitas' => $univ,
                     'ktm_path' => $ktm_path,
                     'active_certificate' => $active_path,
                 ]);
+                dd($member);
             }
 
             DB::commit();
             return redirect()->with('success', 'Tim berhasil diperbarui!');
         } catch (\Exception $e) {
+            dd($e->getMessage());
             DB::rollBack();
             return redirect()->back()->with('error', 'Gagal memperbarui tim');
         }
