@@ -199,4 +199,13 @@ class ProfilesController extends Controller
             return redirect()->back()->with('error', 'Gagal memperbarui tim');
         }
     }
+    public function submission ()
+    {
+        $user = Auth::user()->id;
+        $team = Teams::where('user_id', $user)->first();
+        $team_id = $team?->id;
+        $category = $team?->category?->category_name;
+
+        return view('dashboard.submission', compact('category'));
+    }
 }
