@@ -28,7 +28,7 @@ class checkstage
             } elseif (in_array($stage_id, [2, 5, 8, 11]) && $request->path() !== 'submissions2') {
                 return redirect('/submissions2');
             } elseif (in_array($stage_id, [3, 6, 9, 12]) && $request->path() !== 'final-submission') {
-                return redirect('/final-submission');
+                return $next($request);
             } else {
                 // Pengguna sudah berada di halaman yang sesuai, lanjutkan request
                 return $next($request);

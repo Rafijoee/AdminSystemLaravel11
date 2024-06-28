@@ -23,7 +23,7 @@
 
         <div class="mt-10 px-20 ">
             <h1 class="text-2xl font-bold text-blue-700 my-4">
-                2<sup>st</sup> Stage Proposal Submission </h1>
+                2<sup>nd</sup> Stage Proposal Submission </h1>
             <hr class="border-1 border-gray-400">
 
             @if ($errors->any())
@@ -58,7 +58,7 @@
                                     to upload</span> or drag and drop</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">ZIP (MAX:5mb)</p>
                         </div>
-                        <input id="dropzone-file" type="file" class="hidden" name="submission2" />
+                        <input id="dropzone-file" type="file" class="hidden" name="submission2" accept="application/zip" />
                     </label>
                 </div>
                 <div id="error-message" class="mt-4 text-left text-red-500"></div>

@@ -15,28 +15,41 @@ use Illuminate\Contracts\Cache\Store;
 use App\Models\TeamSubmissionsDetails;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProfileRequest;
+use App\Models\Payments;
+use App\Models\TeamSubmissions;
 
 class ProfilesController extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         $user = Auth::user()->id;
         $team = Teams::where('user_id', $user)->first();
+        $team_id = $team?->id;
+        $verif = $team?->verified_status;
+        $payment = Payments::where('team_id', $team_id)
+            ->whereIn('stage_id', [2, 5, 8, 11])
+            ->first();
+        $payment2 = Payments::where('team_id', $team_id)
+            ->whereIn('stage_id', [3, 6, 9, 12])
+            ->first();
         $member = Members::where('team_id', $team?->id)->get();
-        $universities = Universities::all();
+        $orang = Members::where('team_id', $team?->id)->first();
+        $university = $orang?->universitas;
         $category = $team?->category?->category_name;
         $status = Auth()->user()?->teams?->verified_status;
+        $team_name = $team?->team_name;
         $captain = $member->where('member_role', 'ketua')->first();
-        $university = $universities->where('id', $captain?->university_id)->first();
-        $anggotas = $member->where('member_role', 'anggota');
-        if($anggotas->count() == 0){
+        $anggotas = $member;
+        if ($anggotas->count() == 0) {
             $anggotas = null;
         }
-        if($member->count() == 0){
+        if ($member->count() == 0) {
             $member = null;
         }
         $stage = Stages::where('id', $team?->stage_id)->first();
 
-        return view('dashboard.index', compact('member', 'university', 'captain', 'team', 'anggotas', 'stage', 'status', 'category'));
+
+        return view('dashboard.index', compact('member', 'university', 'captain', 'team', 'anggotas', 'stage', 'status', 'category', 'verif', 'payment', 'payment2', 'team_name'));
     }
 
     public function index()
@@ -47,118 +60,143 @@ class ProfilesController extends Controller
             return redirect()->route('profile.create');
         }
         $members = $team->members;
-        
+
         return view('users.profile.index', compact('team', 'members'));
     }
 
-    public function create(){
+    public function create()
+    {
         $categories = Categories::all();
-        $universities = Universities::all();
+        $universities = Universities::all()->sortByDesc('name');
         $team = null;
         $members = null;
-        return view('users.profile.form',compact('categories','universities','team','members'));
+        return view('users.profile.form', compact('categories', 'universities', 'team', 'members'));
+    }
+
+    public function show($id)
+    {
+        $team = Teams::find($id);
+        $members = Members::where('team_id', $team->id)->get();
+        $univ = $members->first()?->universitas;
+        $categories = Categories::all();
+        $universities = Universities::all();
+        return view('users.profile.form', compact('team', 'categories', 'universities', 'members', 'univ'));
     }
 
     public function store(StoreProfileRequest $request)
     {
+        $total_members = $request->name_anggota_3 ? 3 : 2;
 
-        if($request->name_anggota_3){
-            $total_members = 3;
-        }else{
-            $total_members = 2;
-        }
-        
+        $category_stage_map = [
+            1 => 1,
+            2 => 4,
+            3 => 7,
+            4 => 10
+        ];
+        $stage_id = isset($category_stage_map[$request->category_id]) ? $category_stage_map[$request->category_id] : null;
+
         DB::beginTransaction();
         try {
-            $teams = Teams::create([
+            $team = Teams::create([
                 'team_name' => $request->team_name,
                 'phone' => $request->phone,
                 'category_id' => $request->category_id,
-                'university_id' => $request->university_id,
+                'verified_status' => 'unverified', // 'pending', 'verified', 'rejected
                 'user_id' => Auth::id(),
                 'total_members' => $total_members,
-                'stage_id' => 1,
+                'stage_id' => $stage_id,
             ]);
 
-            for($i=1; $i<=$total_members; $i++){
-
-                $univ = $request['univ_anggota_'.$i];
-                $name = $request['name_anggota_'.$i];
-                $ktm_path = $request->file('ktm_anggota_'.$i)->store($request->team_name.'.ktm');
-                $active_path = $request->file('active_anggota_'.$i)->store($request->team_name.'.active');
+            for ($i = 1; $i <= $total_members; $i++) {
+                $univ = $request->univ;
+                $name = $request['name_anggota_' . $i];
+                $ktm_path = $request->file('ktm_anggota_' . $i)->store($request->team_name . '/ktm');
+                $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
                 Members::create([
-                    'team_id' => $teams->id,
+                    'team_id' => $team->id,
                     'full_name' => $name,
-                    'university_id' => $univ,
+                    'universitas' => $request->univ,
                     'ktm_path' => $ktm_path,
                     'active_certificate' => $active_path,
-                    'member_role' => $i==1 ? 'ketua' : 'anggota',
+                    'member_role' => $i == 1 ? 'ketua' : 'anggota',
                 ]);
             }
+            $team_submission = TeamSubmissions::create([
+                'team_id' => $team->id,
+                'stage_id' => $stage_id,
+            ]);
             DB::commit();
-        
-        }catch (\Exception $e){
+            return redirect('dashboard')->with('success', 'Tim berhasil dibuat!');
+        } catch (\Exception $e) {
             DB::rollBack();
-            dd($e);
+            dd($e->getMessage());
             return redirect()->back()->with('error', 'Gagal membuat tim');
         }
-
-
-        function uploadFile($file,$request){
-            $patch = $request->file($file)->store($file);
-            return $patch;
-        }
-
-
     }
+
 
     public function edit($id)
     {
         $team = Teams::find($id);
+        $team_id = $team->id;
+        $members = Members::where('team_id', $team_id)->get();
+        $univ = $members->first()?->universitas;
         $categories = Categories::all();
         $universities = Universities::all();
-        return view('users.profile.form',compact('team','categories','universities'));
+        return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ'));
     }
 
-    public function update($id, StoreProfileRequest $request)
+    public function update(StoreProfileRequest $request, string $id)
     {
-        $team = Teams::find($id);
-        $team->update([
-            'team_name' => $request->team_name,
-            'phone' => $request->phone,
-            'category_id' => $request->category_id,
-            'university_id' => $request->university_id,
-        ]);
+        $team = Teams::findOrFail($id);
+        $total_members = $request->name_anggota_3 ? 3 : 2;
+        $category_stage_map = [
+            1 => 1,
+            2 => 4,
+            3 => 7,
+            4 => 10
+        ];
+        $stage_id = isset($category_stage_map[$request->category_id]) ? $category_stage_map[$request->category_id] : null;
 
-        $team->members()->delete();
-        if($request->name_anggota_2){
-            $total_members = 3;
-        }else{
-            $total_members = 2;
-        }
-
-        for($i=1; $i<=$total_members; $i++){
-            $univ = $request['univ_anggota_'.$i];
-            $name = $request['name_anggota_'.$i];
-            $ktm_path = $request->file('ktm_anggota_'.$i)->store('ktm_anggota_'.$i);
-            $active_path = $request->file('active_anggota_'.$i)->store('active_anggota_'.$i);
-            Members::create([
-                'team_id' => $team->id,
-                'full_name' => $name,
-                'university_id' => $univ,
-                'ktm_path' => $ktm_path,
-                'active_certificate' => $active_path,
-                'member_role' => $i==1 ? 'ketua' : 'anggota',
+        DB::beginTransaction();
+        try {
+            $team->update([
+                'team_name' => $request->team_name,
+                'phone' => $request->phone,
+                'category_id' => $request->category_id,
+                'total_members' => $total_members,
+                'stage_id' => $stage_id,
             ]);
+
+            for ($i = 1; $i <= $total_members; $i++) {
+                $member = Members::where('team_id', $team->id)->skip($i - 1)->first();
+
+                $univ = $request['univ'];
+                $name = $request['name_anggota_' . $i];
+
+                $ktm_path = $member->ktm_path;
+                if ($request->hasFile('ktm_anggota_' . $i)) {
+                    $ktm_path = $request->file('ktm_anggota_' . $i)->store($request->team_name . '/ktm');
+                }
+
+                $active_path = $member->active_certificate;
+                if ($request->hasFile('active_anggota_' . $i)) {
+                    $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
+                }
+
+                $member->update([
+                    'full_name' => $name,
+                    'universitas' => $univ,
+                    'ktm_path' => $ktm_path,
+                    'active_certificate' => $active_path,
+                ]);
+            }
+
+            DB::commit();
+            return redirect('/dashboard')->with('success', 'Tim berhasil diperbarui!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Gagal memperbarui tim');
         }
-
-        return redirect()->route('profile.index')->with('success', 'Berhasil mengubah tim');
-
     }
-
-
-
-
-
-    
 }

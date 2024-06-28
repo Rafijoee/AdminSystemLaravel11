@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITC | Detail Lomba</title>
+    <title>IT Convert</title>
     <link rel="stylesheet" href="../../css/app.css">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -64,7 +64,7 @@
     <nav id="navbar" class="fixed top-0 z-50 w-full border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 flex items-center justify-between p-4 ">
         <!-- Left side: Logo -->
         <div class="flex items-center flex-grow-0 ml-20">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{asset('images/logo-itc.png')}}" class="h-10" alt="Flowbite Logo">
             </a>
         </div>
@@ -73,7 +73,7 @@
         <div class="hidden md:flex md:flex-grow md:justify-center" id="navbar-sticky">
             <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                    <a href="#" class="block py-2 px-3 text-white bg-[#61C6ED] rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
+                    <a href="/" class="block py-2 px-3 text-white bg-[#61C6ED] rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
                 </li>
                 <li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Bidang Lomba
@@ -99,7 +99,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FAQ</a>
+                    <a href="/faq" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FAQ</a>
                 </li>
             </ul>
         </div>
@@ -134,7 +134,9 @@
 
     <header id="home" class="relative flex items-center justify-center" style="margin-bottom: 50px;">
         <div class="overlay absolute inset-0 bg-black opacity-50"></div>
-        <iframe src="https://www.youtube.com/embed/PcmqSfr1ENY?autoplay=1&mute=1&loop=1&playlist=PcmqSfr1ENY&controls=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="aspect-w-16 aspect-h-9">
+            <iframe src="https://www.youtube.com/embed/sefSrrtFm7Y?autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"></iframe>
+        </div>
         <div class="relative z-10 text-center max-w-lg mx-auto">
             <h1 class="text-3xl font-semibold text-white" style="font-family: 'Press Start 2P'">IT Convert 2024</h1>
             <p class="text-sm text-gray-300 mt-2">
@@ -152,22 +154,22 @@
         <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Bidang Lomba</h1>
         <div class="relative w-full pb-[50%] md:w-[95%] md:pb-[50%] mx-auto overflow-hidden rounded-lg">
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <a href="/route1">
+                <a href="/detailsscience">
                     <img src="{{asset('assets/kti.png')}}" class="absolute block w-full h-full object-cover" alt="...">
                 </a>
             </div>
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <a href="/route2">
+                <a href="/detailsbusplan">
                     <img src="{{asset('assets/bistik.png')}}" class="absolute block w-full h-full object-cover" alt="...">
                 </a>
             </div>
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <a href="/route3">
+                <a href="/detailsppl">
                     <img src="{{asset('assets/ppl.png')}}" class="absolute block w-full h-full object-cover" alt="...">
                 </a>
             </div>
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <a href="/route4">
+                <a href="/detailsux">
                     <img src="{{asset('assets/ux.png')}}" class="absolute block w-full h-full object-cover" alt="...">
                 </a>
             </div>
@@ -425,7 +427,7 @@
                     <h2 class="mb-3 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li>
-                            <p  class="hover:underline">itchimasif23@gmail.com</p>
+                            <p class="hover:underline">itchimasif23@gmail.com</p>
                         </li>
                         <li>
                             <a href="https://wa.me/6281914757810" target="_blank" class="hover:underline">+62 819-1475-7810 (Ila)</a>

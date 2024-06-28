@@ -25,7 +25,7 @@
                 <div class="mb-4">
                     <label for="paymentsub" class="block text-gray-700 font-semibold text-xl">Payment </label>
                     <p class="font-lg text-gray-500 my-2">format: image||png||jpg</p>
-                    <input type="file" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" id="paymentsub" name="paymentsub" required>
+                    <input type="file" accept="image/png, image/jpeg" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" id="paymentsub" name="paymentsub" required>
                 </div>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Upload

@@ -59,4 +59,5 @@ require __DIR__ . '/users/final.php';
 require __DIR__ . '/users/detailcategory.php';
 require __DIR__ . '/Admin/checkingstage.php';
 require __DIR__ . '/Admin/checkingpayment.php';
+require __DIR__ . '/users/faq.php';
 require __DIR__ . '/auth.php';
