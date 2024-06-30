@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('team_id')->constrained();
             $table->string('full_name');
-            $table->foreignId('university_id')->constrained();
+            $table->string('universitas');
             $table->string('ktm_path');
             $table->string('active_certificate');
             $table->enum('member_role', ["ketua","anggota"]);

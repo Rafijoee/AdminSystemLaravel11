@@ -18,7 +18,7 @@ class Members extends Model
     protected $fillable = [
         'team_id',
         'full_name',
-        'university_id',
+        'universitas',
         'ktm_path',
         'active_certificate',
         'member_role',
@@ -42,6 +42,6 @@ class Members extends Model
 
     public function university(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Universities::class);
+        return $this->belongsTo(\App\Models\Universities::class, 'university_id', 'id');
     }
 }
