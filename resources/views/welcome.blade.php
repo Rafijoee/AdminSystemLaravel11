@@ -7,7 +7,9 @@
     <title>IT Convert</title>
     <link rel="stylesheet" href="../../css/app.css">
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+    <link rel="stylesheet" href="{{asset('build/assets/app-BgCxfeYb.css')}}"> 
+    <script src="{{asset('build/assets/app-Bvkupbkq.js')}}" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
