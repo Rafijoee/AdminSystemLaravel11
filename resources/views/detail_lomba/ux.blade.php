@@ -7,7 +7,8 @@
     <title>ITC | Detail Lomba</title>
     <link rel="stylesheet" href="../../css/app.css">
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{asset('build/assets/app-BgCxfeYb.css')}}"> 
+    <script src="{{asset('build/assets/app-Bvkupbkq.js')}}" defer></script>
 
 </head>
 
