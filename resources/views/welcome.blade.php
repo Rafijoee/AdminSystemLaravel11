@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../css/app.css">
     <!-- Scripts -->
     <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
-    <link rel="stylesheet" href="{{asset('build/assets/app-BgCxfeYb.css')}}"> 
+    <link rel="stylesheet" href="{{asset('build/assets/app-Bvkupbkq.css')}}"> 
     <script src="{{asset('build/assets/app-Bvkupbkq.js')}}" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
