@@ -7,7 +7,7 @@
     <title>IT Convert</title>
     <link rel="stylesheet" href="../../css/app.css">
     <!-- Scripts -->
-    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+
     <link rel="stylesheet" href="{{asset('build/assets/app-BgCxfeYb.css')}}"> 
     <script src="{{asset('build/assets/app-Bvkupbkq.js')}}" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -196,13 +196,13 @@
 
     <div class="flex justify-center flex-wrap">
         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 p-4">
-            <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
                 <a href="#">
                     <div class="relative mx-16 mt-6">
                         <img class="w-full h-auto rounded-t-lg object-cover" src="{{asset('assets/itc.png')}}" alt="IT Convert 2024" style="max-height: 300px;" />
                     </div>
                 </a>
-                <div class="p-4">
+                <div class="p-4 mt-auto">
                     <a href="#">
                         <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">IT Convert 2024</h5>
                     </a>
@@ -217,13 +217,13 @@
             </div>
         </div>
         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 p-4">
-            <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  h-full">
                 <a href="#">
                     <div class="relative m-10">
-                        <img class="my-[10vh] h-full rounded-t-lg object-cover" src="{{asset('assets/PICTURE.png')}}" alt="Picture 2024" style="max-height: 300px;" />
+                        <img class="my-[10vh] h-full rounded-t-lg object-cover" src="{{asset('assets/picture.png')}}" alt="Picture 2024" style="max-height: 300px;" />
                     </div>
                 </a>
-                <div class="p-4">
+                <div class="p-4 mt-auto">
                     <a href="#">
                         <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Picture 2024</h5>
                     </a>
