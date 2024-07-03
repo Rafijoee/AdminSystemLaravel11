@@ -30,7 +30,7 @@ class FinalController extends Controller
         $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_3;
         $categorys_id = $user->teams->team_submission;
 
-        return view('users\final\index', compact('categorys_id', 'fileOnUpload'));
+        return view('users.final.index', compact('categorys_id', 'fileOnUpload'));
     }
 
     /**

@@ -27,7 +27,7 @@ class Submission2Controller extends Controller
         $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_2;
         $categorys_id = $user->teams->team_submission;
 
-        return view('users\submisson2\index', compact('categorys_id', 'fileOnUpload'));
+        return view('users.submisson2.index', compact('categorys_id', 'fileOnUpload'));
     }
     public function store(Request $request)
     {
