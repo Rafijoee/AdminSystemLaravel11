@@ -7,7 +7,7 @@
     <title>ITC | Detail Lomba</title>
     <link rel="stylesheet" href="../../css/app.css">
     <!-- Scripts -->
-    <link rel="stylesheet" href="{{asset('build/assets/app-BgCxfeYb.css')}}"> 
+    <link rel="stylesheet" href="{{asset('build/assets/app-Bvkupbkq.css')}}"> 
     <script src="{{asset('build/assets/app-Bvkupbkq.js')}}" defer></script>
 
 </head>

@@ -13,7 +13,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        <link rel="stylesheet" href="{{asset('build/assets/app-BgCxfeYb.css')}}"> 
+        <link rel="stylesheet" href="{{asset('build/assets/app-Bvkupbkq.css')}}"> 
         <script src="{{asset('build/assets/app-Bvkupbkq.js')}}" defer></script>
     </head>
     <body class="font-sans antialiased">
