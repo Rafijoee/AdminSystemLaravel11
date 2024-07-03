@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProfileRequest;
 use App\Models\Payments;
 use App\Models\TeamSubmissions;
+use Illuminate\Support\Facades\Crypt;
+
 
 class ProfilesController extends Controller
 {
@@ -137,15 +139,28 @@ class ProfilesController extends Controller
 
     public function edit($id)
     {
-        $team = Teams::find($id);
+        try {
+            // Dekripsi ID
+            $decryptedID = Crypt::decryptString($id);
+        } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+            // Tangani kesalahan jika ID tidak dapat didekripsi
+            return redirect()->back()->with('error', 'ID tidak valid.');
+        }
+    
+        // Mencari tim berdasarkan ID yang didekripsi
+        $team = Teams::find($decryptedID);
+    
         $team_id = $team->id;
         $members = Members::where('team_id', $team_id)->get();
+        $stage_id = $team->stage_id;
         $path1 = TeamSubmissions::where('team_id', $team_id)->pluck('path_1')->first();
         $univ = $members->first()?->universitas;
         $categories = Categories::all();
         $universities = Universities::all();
-        return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ', 'path1'));
+    
+        return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ', 'path1', 'stage_id'));
     }
+    
 
     public function update(StoreProfileRequest $request, string $id)
     {
