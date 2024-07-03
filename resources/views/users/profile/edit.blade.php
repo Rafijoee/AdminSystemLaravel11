@@ -65,7 +65,7 @@
                 <div class="mb-6">
                     <label for="univ" class="block mb-2 text-sm font-medium text-gray-900">Universitas</label>
                     <input value="{{ old('univ', $univ) }}" name="univ" type="text" id="univ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <span class="text-gray-400"> * Contoh penulisan : Unvirsitas Jember</span>
+                    <span class="text-gray-400"> * Contoh penulisan : Universitas Jember</span>
                     @error('univ')
                     <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
                     @enderror
