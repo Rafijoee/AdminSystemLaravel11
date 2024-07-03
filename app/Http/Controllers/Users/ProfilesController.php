@@ -140,10 +140,11 @@ class ProfilesController extends Controller
         $team = Teams::find($id);
         $team_id = $team->id;
         $members = Members::where('team_id', $team_id)->get();
+        $path1 = TeamSubmissions::where('team_id', $team_id)->pluck('path_1')->first();
         $univ = $members->first()?->universitas;
         $categories = Categories::all();
         $universities = Universities::all();
-        return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ'));
+        return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ', 'path1'));
     }
 
     public function update(StoreProfileRequest $request, string $id)
@@ -196,6 +197,7 @@ class ProfilesController extends Controller
             return redirect('/dashboard')->with('success', 'Tim berhasil diperbarui!');
         } catch (\Exception $e) {
             DB::rollBack();
+            dd($e->getMessage());
             return redirect()->back()->with('error', 'Gagal memperbarui tim');
         }
     }

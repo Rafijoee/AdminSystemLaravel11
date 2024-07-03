@@ -13,8 +13,8 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        <link rel="stylesheet" href="{{asset('build/assets/app-Bvkupbkq.css')}}"> 
-        <script src="{{asset('build/assets/app-Bvkupbkq.js')}}" defer></script>
+        @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

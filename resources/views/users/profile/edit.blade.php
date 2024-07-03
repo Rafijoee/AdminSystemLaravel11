@@ -1,6 +1,5 @@
 <x-dashboard.layout>
     @php
-    $path1 = auth()->user()->teams?->team_submission?->first()?->path1 == null;
     @endphp
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
@@ -30,7 +29,7 @@
                     <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
                     @enderror
                 </div>
-                @if($path1 == true)
+                @if(is_null($path1))
                 <div class="mb-6">
                     <label for="category_id" class="block mb-2 text-sm font-medium text-gray-900">Kategori Lomba</label>
                     <select name="category_id" id="category_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
