@@ -19,13 +19,12 @@ class EditTeams
         if (Auth::check()) {
             $user = Auth::user();
             // Memeriksa apakah properti path_1 dari team_submission kosong
-            if (empty($user->teams->team_submission->path_1)) {
-                // Jika kosong, arahkan kembali dengan pesan error
-                return redirect()->route('dashboard')->with('succes', 'You do not have access to edit profile.');
-            }
-            else {
+            if (!empty($user->teams->team_submission->path_1)) {
                 // Jika tidak kosong, lanjutkan ke request berikutnya
                 return $next($request);
+            } else {
+                // Jika kosong, arahkan kembali dengan pesan error
+                return redirect()->route('dashboard')->with('success', 'You do not have access to edit profile.');
             }
         }
 
