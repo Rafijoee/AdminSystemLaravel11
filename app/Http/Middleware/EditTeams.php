@@ -23,6 +23,10 @@ class EditTeams
                 // Jika kosong, arahkan kembali dengan pesan error
                 return redirect()->route('dashboard')->with('succes', 'You do not have access to edit profile.');
             }
+            else {
+                // Jika tidak kosong, lanjutkan ke request berikutnya
+                return $next($request);
+            }
         }
 
         // Jika tidak kosong, lanjutkan ke request berikutnya
