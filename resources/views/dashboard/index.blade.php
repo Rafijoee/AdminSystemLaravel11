@@ -94,7 +94,7 @@
          <svg class="flex-shrink-0 w-4 h-4 mx-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
          </svg>
-         <span class="p-4">You have successfully uploaded your payment proof. Please wait for admin verification. Once your payment is verified, you can proceed to upload Submission 1.</span>
+         <span class="p-4">You have successfully uploaded your Team Data. Please wait for admin verification. Once your Team Data is verified, you can proceed to upload Submission 1.</span>
       </div>
       @endif
       @if ($stage?->id == 2 && is_null($payment) || $stage?->id == 5 && is_null($payment) || $stage?->id == 8 && is_null($payment) || $stage?->id == 11 && is_null($payment))
