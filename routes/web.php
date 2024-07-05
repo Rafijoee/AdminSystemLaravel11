@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CheckStageController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Submissions1Controller;
@@ -44,6 +45,11 @@ Route::get('/dashboard2', function () {
 
 
 Route::get('/submissions1', [UsersSubmissions1Controller::class, 'index']);
+
+
+Route::get('/search', [CheckStageController::class, 'search']);
+
+
 // Route::post('/submissions1/store', [Sub1Controller::class,'store']);
 
 
