@@ -23,7 +23,6 @@
                     <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
                     @enderror
                 </div>
-                @if($path1 == true)
                 <div class="mb-6">
                     <label for="category_id" class="block mb-2 text-sm font-medium text-gray-900">Kategori Lomba</label>
                     <select name="category_id" id="category_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
@@ -36,7 +35,6 @@
                     <span class="text-red-600"> *Kamu bisa mengubah data kategori lomba jika tim kamu belum menggunggah file ke submission</span>
                     @error('category_id')
                     <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
-                    @enderror
                 </div>
                 @else
                 <div class="mb-6">
