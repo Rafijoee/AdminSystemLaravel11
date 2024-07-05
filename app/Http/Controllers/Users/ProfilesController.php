@@ -153,7 +153,7 @@ class ProfilesController extends Controller
         $team_id = $team->id;
         $members = Members::where('team_id', $team_id)->get();
         $stage_id = $team->stage_id;
-        $path1 = TeamSubmissions::where('team_id', $team_id)->pluck('path_1')->first();
+        $path1 = TeamSubmissions::where('team_id', $team_id)?->pluck('path_1')?->first();
         $univ = $members->first()?->universitas;
         $categories = Categories::all();
         $universities = Universities::all();
