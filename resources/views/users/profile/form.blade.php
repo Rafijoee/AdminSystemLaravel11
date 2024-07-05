@@ -32,30 +32,15 @@
                         <option value="3">Software Development</option>
                         <option value="4">UX Design</option>
                     </select>
-                    <span class="text-red-600"> *Kamu bisa mengubah data kategori lomba jika tim kamu belum menggunggah file ke submission</span>
+                    <span class="text-red-600 "> *Kamu bisa mengubah data kategori lomba jika tim kamu belum menggunggah file ke submission</span>
                     @error('category_id')
                     <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
                 </div>
-                @else
-                <div class="mb-6">
-                    <label for="category_id" class="block mb-2 text-sm font-medium text-gray-900">Kategori Lomba</label>
-                    <select name="category_id" id="category_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" disabled>
-                        <option value="{{$team ? $team->category_id : ''}}" selected>{{$team ? $team->category->category_name : ''}}</option>
-                        <option value="1">ICT Scientific Paper</option>
-                        <option value="2">ICT Business Plan</option>
-                        <option value="3">Software Development</option>
-                        <option value="4">UX Design</option>
-                    </select>
-                    <span class="text-red-300"> *Kamu tidak bisa mengubah data kategori lomba jika tim kamu sudah menggunggah file ke submission</span>
-                    @error('category_id')
-                    <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
-                    @enderror
-                </div>
-                @endif
+                
                 <div class="mb-6">
                     <label for="univ" class="block mb-2 text-sm font-medium text-gray-900">Universitas</label>
                     <input name="univ" type="text" id="univ" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <span class="text-gray-400"> *Contoh penulisan : Unvirsitas Jember</span>
+                    <span class="text-gray-400"> *Contoh penulisan : Unversitas Jember</span>
                     @error('univ')
                     <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
                     @enderror

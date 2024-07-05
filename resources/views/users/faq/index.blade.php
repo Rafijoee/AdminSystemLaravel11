@@ -21,7 +21,7 @@
     <nav id="navbar" class="fixed top-0 z-50 w-full border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 flex items-center justify-between p-4 ">
         <!-- Left side: Logo -->
         <div class="flex items-center flex-grow-0 ml-20">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{asset('images/logo-itc.png')}}" class="h-10" alt="Flowbite Logo">
             </a>
         </div>

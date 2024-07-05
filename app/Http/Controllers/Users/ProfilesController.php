@@ -22,8 +22,14 @@ use Illuminate\Support\Facades\Crypt;
 
 class ProfilesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('editteams')->only('edit');
+    }
+    
     public function dashboard()
     {
+        
         $user = Auth::user()->id;
         $team = Teams::where('user_id', $user)->first();
         $team_id = $team?->id;
