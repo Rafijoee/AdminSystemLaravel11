@@ -26,7 +26,7 @@ class ProfilesController extends Controller
     {
         $this->middleware('editteams')->only('edit');
     }
-    
+
     public function dashboard()
     {
         
@@ -55,8 +55,6 @@ class ProfilesController extends Controller
             $member = null;
         }
         $stage = Stages::where('id', $team?->stage_id)->first();
-
-
         return view('dashboard.index', compact('member', 'university', 'captain', 'team', 'anggotas', 'stage', 'status', 'category', 'verif', 'payment', 'payment2', 'team_name'));
     }
 

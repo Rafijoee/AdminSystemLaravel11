@@ -19,7 +19,7 @@ class EditTeams
         if (Auth::check()) {
             $user = Auth::user();
             // Memeriksa apakah properti path_1 dari team_submission kosong
-            if (!empty($user->teams->team_submission->path_1)) {
+            if (empty($user->teams->team_submission->first()->path_1)) {
                 // Jika tidak kosong, lanjutkan ke request berikutnya
                 return $next($request);
             } else {
@@ -29,6 +29,6 @@ class EditTeams
         }
 
         // Jika tidak kosong, lanjutkan ke request berikutnya
-        return redirect()->route('login');
+        return $next($request);
     }
 }
