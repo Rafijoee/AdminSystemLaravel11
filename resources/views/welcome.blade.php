@@ -9,7 +9,7 @@
     <!-- Scripts -->
 
     <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
-    <link rel="stylesheet" href="{{asset('build/assets/app-Bvkupbkq.css')}}"> 
+    <link rel="stylesheet" href="{{asset('build/assets/app-Bvkupbkq.css')}}">
     <script src="{{asset('build/assets/app-Bvkupbkq.js')}}" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -138,7 +138,7 @@
     <header id="home" class="relative flex items-center justify-center" style="margin-bottom: 50px;">
         <div class="overlay absolute inset-0 bg-black opacity-50"></div>
         <div class="aspect-w-16 aspect-h-9">
-            <iframe src="https://www.youtube.com/embed/sefSrrtFm7Y?autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"></iframe>
+            <iframe id="ytplayer" src="https://www.youtube.com/embed/sefSrrtFm7Y?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"></iframe>
         </div>
         <div class="relative z-10 text-center max-w-lg mx-auto">
             <h1 class="text-3xl font-semibold text-white" style="font-family: 'Press Start 2P'">IT Convert 2024</h1>
@@ -152,6 +152,27 @@
             </div>
         </div>
     </header>
+
+    <script>
+        // Ambil elemen iframe
+        var iframe = document.getElementById('ytplayer');
+
+        // Fungsi untuk memulai ulang video saat selesai
+        function onYouTubePlayerReady(playerId) {
+            var player = new YT.Player(playerId, {
+                events: {
+                    'onStateChange': function(event) {
+                        if (event.data === YT.PlayerState.ENDED) {
+                            player.playVideo(); // Memulai ulang video setelah selesai
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
 
     <div id="default-carousel" class="relative w-full mx-auto max-w-screen-lg" data-carousel="slide" style="margin-bottom: 50px;">
         <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Bidang Lomba</h1>
@@ -325,7 +346,7 @@
                     <h3 class="text-lg font-semibold text-gray-900">Tahap Final (Presentasi)</h3>
                 </li>
             </ol>
-               
+
         </div>
     </div>
 
