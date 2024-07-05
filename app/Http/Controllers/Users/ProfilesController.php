@@ -161,8 +161,9 @@ class ProfilesController extends Controller
         $univ = $members->first()?->universitas;
         $categories = Categories::all();
         $universities = Universities::all();
+        $members = $team->members;
     
-        return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ', 'path1', 'stage_id'));
+        return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ', 'path1', 'stage_id', 'members'));
     }
     
 
@@ -184,6 +185,7 @@ class ProfilesController extends Controller
                 'team_name' => $request->team_name,
                 'phone' => $request->phone,
                 'category_id' => $request->category_id,
+                'verified_status' => 'unverified',
                 'total_members' => $total_members,
                 'stage_id' => $stage_id,
             ]);
