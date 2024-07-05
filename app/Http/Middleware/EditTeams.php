@@ -29,6 +29,6 @@ class EditTeams
         }
 
         // Jika tidak kosong, lanjutkan ke request berikutnya
-        return $next($request);
+        return redirect()->route('login');
     }
 }
