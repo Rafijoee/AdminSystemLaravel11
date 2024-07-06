@@ -6,7 +6,6 @@
 /public/submission2
 /public/final
 /public/build
-/public
 /storage/*.key
 /vendor
 .env
