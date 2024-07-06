@@ -13,6 +13,7 @@
          <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
+         <img src="{{asset('images/Logo 2x.png')}}" alt="itc.png" class="scale-125">
       </div>
       <div class="logos-slide">
          <img src="{{asset('assets/itc.png')}}" alt="itc.png" class="scale-75">
@@ -23,6 +24,7 @@
          <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
+         <img src="{{asset('images/Logo 2x.png')}}" alt="itc.png" class="scale-125">
       </div>
    </div>
    <div class="grid grid-cols-3 gap-4 mb-4 mt-4">
@@ -233,7 +235,7 @@
       }
 
       to {
-         transform: translateX(-100%);
+         transform: translateX(-90%);
       }
    }
 
