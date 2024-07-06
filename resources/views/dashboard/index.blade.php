@@ -9,17 +9,17 @@
          <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
+         <img src="{{asset('images/Logo 2x.png')}}" alt="itc.png" class="scale-125">
          <img src="{{asset('assets/itc.png')}}" alt="itc.png" class="scale-75">
          <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
          <img src="{{asset('images/Logo 2x.png')}}" alt="itc.png" class="scale-125">
-      </div>
-      <div class="logos-slide">
          <img src="{{asset('assets/itc.png')}}" alt="itc.png" class="scale-75">
          <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
          <img src="{{asset('images/SE_new_logo-01.png')}}" alt="itc.png">
+         <img src="{{asset('images/Logo 2x.png')}}" alt="itc.png" class="scale-125">
          <img src="{{asset('assets/itc.png')}}" alt="itc.png" class="scale-75">
          <img src="{{asset('assets/picture.png')}}" alt="itc.png" class="scale-50 -mb-2">
          <img src="{{asset('images/DevOps Powered By Logo_warna-02.png')}}" alt="itc.png" class="scale-150">
@@ -233,7 +233,6 @@
       from {
          transform: translateX(0);
       }
-
       to {
          transform: translateX(-90%);
       }
@@ -274,6 +273,6 @@
 
    .logos-slide img {
       height: 50px;
-      margin: 0 40px;
+      margin: 0 60px; /* Perbesar margin horizontal untuk menambah jarak antar gambar */
    }
 </style>
