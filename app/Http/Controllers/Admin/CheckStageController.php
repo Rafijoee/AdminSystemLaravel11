@@ -80,7 +80,7 @@ class CheckStageController extends Controller
     
         $team = Teams::findOrFail($id); // Tidak perlu memuat ulang data tim
     
-        return redirect()->route('checkstage.index')->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
+        return redirect()->back()->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
     }
 
     /**
