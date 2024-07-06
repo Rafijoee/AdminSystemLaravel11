@@ -416,7 +416,8 @@
     <script>
         const sponsorImages = [
             "{{asset('images/DevOps Powered By Logo_warna-02.png')}}",
-            "{{asset('images/SE_new_logo-01.png')}}"
+            "{{asset('images/SE_new_logo-01.png')}}",
+            "{{asset('images/Logo 2x.png')}}"
         ];
         const sliderTrack = document.getElementById('slider-track');
 
