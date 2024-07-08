@@ -116,13 +116,11 @@ class ProfilesController extends Controller
             for ($i = 1; $i <= $total_members; $i++) {
                 $univ = $request->univ;
                 $name = $request['name_anggota_' . $i];
-                $ktm_path = $request->file('ktm_anggota_' . $i)->store($request->team_name . '/ktm');
                 $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
                 Members::create([
                     'team_id' => $team->id,
                     'full_name' => $name,
                     'universitas' => $request->univ,
-                    'ktm_path' => $ktm_path,
                     'active_certificate' => $active_path,
                     'member_role' => $i == 1 ? 'ketua' : 'anggota',
                 ]);
@@ -196,10 +194,7 @@ class ProfilesController extends Controller
                 $univ = $request['univ'];
                 $name = $request['name_anggota_' . $i];
 
-                $ktm_path = $member->ktm_path;
-                if ($request->hasFile('ktm_anggota_' . $i)) {
-                    $ktm_path = $request->file('ktm_anggota_' . $i)->store($request->team_name . '/ktm');
-                }
+
 
                 $active_path = $member->active_certificate;
                 if ($request->hasFile('active_anggota_' . $i)) {
@@ -209,7 +204,6 @@ class ProfilesController extends Controller
                 $member->update([
                     'full_name' => $name,
                     'universitas' => $univ,
-                    'ktm_path' => $ktm_path,
                     'active_certificate' => $active_path,
                 ]);
             }

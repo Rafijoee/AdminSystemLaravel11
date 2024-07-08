@@ -81,15 +81,7 @@
                         @enderror
                     </div>
                     <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900" for="ktm_{{$role}}">Upload Kartu tanda mahasiswa</label>
-                        <input name="ktm_{{$role}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" accept="application/pdf" aria-describedby="file_input_help" id="ktm_{{$role}}" type="file">
-                        @error('ktm_{{$role}}')
-                        <div class="text-sm text-red-600 mt-2">{{ $message }}</div>
-                        @enderror
-                        <p class="mt-1 text-sm text-gray-500" id="file_input_help">PDF (MAX:5mb)</p>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900" for="active_{{$role}}">Upload surat keterangan aktif</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-900" for="active_{{$role}}">Upload surat keterangan aktif atau kartu tanda mahasiswa </label>
                         <input name="active_{{$role}}" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" accept="application/pdf" aria-describedby="file_input_help" id="active_{{$role}}" type="file">
                         @error('active_{{$role}}')
                         <div class="text-sm text-red-600 mt-2">{{ $message }}</div>

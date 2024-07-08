@@ -31,8 +31,6 @@ class StoreProfileRequest extends FormRequest
                 'name_anggota_1' => 'required',
                 'name_anggota_3' => 'nullable',
                 'univ' => 'required',
-                'ktm_anggota_2' => 'required|'.$ktm_validate,
-                'ktm_anggota_1' => 'required|'.$ktm_validate,
                 'ktm_anggota_3' => 'nullable|'.$ktm_validate,
                 'active_anggota_2' => 'required|'.$active_validate,
                 'active_anggota_1' => 'required|'.$active_validate,

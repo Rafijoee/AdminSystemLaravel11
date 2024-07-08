@@ -19,7 +19,6 @@ class Members extends Model
         'team_id',
         'full_name',
         'universitas',
-        'ktm_path',
         'active_certificate',
         'member_role',
     ];
