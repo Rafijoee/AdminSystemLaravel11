@@ -29,7 +29,7 @@ class ProfilesController extends Controller
 
     public function dashboard()
     {
-        
+
         $user = Auth::user()->id;
         $team = Teams::where('user_id', $user)->first();
         $team_id = $team?->id;
@@ -148,10 +148,10 @@ class ProfilesController extends Controller
             // Tangani kesalahan jika ID tidak dapat didekripsi
             return redirect()->back()->with('error', 'ID tidak valid.');
         }
-    
+
         // Mencari tim berdasarkan ID yang didekripsi
         $team = Teams::find($decryptedID);
-    
+
         $team_id = $team->id;
         $members = Members::where('team_id', $team_id)->get();
         $stage_id = $team->stage_id;
@@ -160,10 +160,10 @@ class ProfilesController extends Controller
         $categories = Categories::all();
         $universities = Universities::all();
         $members = $team->members;
-    
+
         return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ', 'path1', 'stage_id', 'members'));
     }
-    
+
 
     public function update(StoreProfileRequest $request, string $id)
     {
@@ -191,32 +191,36 @@ class ProfilesController extends Controller
             for ($i = 1; $i <= $total_members; $i++) {
                 $member = Members::where('team_id', $team->id)->skip($i - 1)->first();
 
-                $univ = $request['univ'];
-                $name = $request['name_anggota_' . $i];
+                if (!$member) {
+                    $member = new Members([
+                        'team_id' => $team->id,
+                        'full_name' => $request['name_anggota_' . $i],
+                        'universitas' => $request['univ'],
+                        'active_certificate' => null
+                    ]);
+                } else {
+                    $active_path = $member->active_certificate;
+                    if ($request->hasFile('active_anggota_' . $i)) {
+                        $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
+                    }
 
-
-
-                $active_path = $member->active_certificate;
-                if ($request->hasFile('active_anggota_' . $i)) {
-                    $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
+                    $member->update([
+                        'full_name' => $request['name_anggota_' . $i],
+                        'universitas' => $request['univ'],
+                        'active_certificate' => $active_path,
+                    ]);
                 }
-
-                $member->update([
-                    'full_name' => $name,
-                    'universitas' => $univ,
-                    'active_certificate' => $active_path,
-                ]);
             }
 
             DB::commit();
             return redirect('/dashboard')->with('success', 'Tim berhasil diperbarui!');
         } catch (\Exception $e) {
             DB::rollBack();
-            dd($e->getMessage());
             return redirect()->back()->with('error', 'Gagal memperbarui tim');
         }
     }
-    public function submission ()
+
+    public function submission()
     {
         $user = Auth::user()->id;
         $team = Teams::where('user_id', $user)->first();
