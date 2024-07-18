@@ -176,7 +176,7 @@ class ProfilesController extends Controller
             4 => 10
         ];
         $stage_id = isset($category_stage_map[$request->category_id]) ? $category_stage_map[$request->category_id] : null;
-
+    
         DB::beginTransaction();
         try {
             $team->update([
@@ -187,23 +187,25 @@ class ProfilesController extends Controller
                 'total_members' => $total_members,
                 'stage_id' => $stage_id,
             ]);
-
+    
             for ($i = 1; $i <= $total_members; $i++) {
                 $member = Members::where('team_id', $team->id)->skip($i - 1)->first();
-
+    
                 if (!$member) {
-                    $member = new Members([
+                    $active_path = $request->hasFile('active_anggota_' . $i) ? $request->file('active_anggota_' . $i)->store($request->team_name . '/active') : null;
+    
+                    Members::create([
                         'team_id' => $team->id,
                         'full_name' => $request['name_anggota_' . $i],
                         'universitas' => $request['univ'],
-                        'active_certificate' => null
+                        'active_certificate' => $active_path,
                     ]);
                 } else {
                     $active_path = $member->active_certificate;
                     if ($request->hasFile('active_anggota_' . $i)) {
                         $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
                     }
-
+    
                     $member->update([
                         'full_name' => $request['name_anggota_' . $i],
                         'universitas' => $request['univ'],
@@ -211,7 +213,7 @@ class ProfilesController extends Controller
                     ]);
                 }
             }
-
+    
             DB::commit();
             return redirect('/dashboard')->with('success', 'Tim berhasil diperbarui!');
         } catch (\Exception $e) {
