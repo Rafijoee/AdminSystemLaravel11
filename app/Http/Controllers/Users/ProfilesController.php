@@ -29,7 +29,7 @@ class ProfilesController extends Controller
 
     public function dashboard()
     {
-        
+
         $user = Auth::user()->id;
         $team = Teams::where('user_id', $user)->first();
         $team_id = $team?->id;
@@ -148,10 +148,10 @@ class ProfilesController extends Controller
             // Tangani kesalahan jika ID tidak dapat didekripsi
             return redirect()->back()->with('error', 'ID tidak valid.');
         }
-    
+
         // Mencari tim berdasarkan ID yang didekripsi
         $team = Teams::find($decryptedID);
-    
+
         $team_id = $team->id;
         $members = Members::where('team_id', $team_id)->get();
         $stage_id = $team->stage_id;
@@ -160,10 +160,10 @@ class ProfilesController extends Controller
         $categories = Categories::all();
         $universities = Universities::all();
         $members = $team->members;
-    
+
         return view('users.profile.edit', compact('team', 'categories', 'universities', 'members', 'univ', 'path1', 'stage_id', 'members'));
     }
-    
+
 
         public function update(StoreProfileRequest $request, string $id)
     {
