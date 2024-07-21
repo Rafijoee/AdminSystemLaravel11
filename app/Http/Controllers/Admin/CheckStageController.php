@@ -69,19 +69,47 @@ class CheckStageController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $team = Teams::findOrFail($id); // Muat data tim sekali
+    
+        // Sesuaikan nilai tahap jika kategori tim adalah 2
+        if ($team->category_id == 2) {
+            if ($request->stage == 1) {
+                $request->merge(['stage' => 4]);
+            } elseif ($request->stage == 2) {
+                $request->merge(['stage' => 5]);
+            } elseif ($request->stage == 3) {
+                $request->merge(['stage' => 6]);
+            }
+        } else if ($team->category_id == 3){
+            if ($request->stage == 1) {
+                $request->merge(['stage' => 7]);
+            } elseif ($request->stage == 2) {
+                $request->merge(['stage' => 8]);
+            } elseif ($request->stage == 3) {
+                $request->merge(['stage' => 9]);
+            }
+        } else if ($team->category_id == 4){
+            if ($request->stage == 1) {
+                $request->merge(['stage' => 10]);
+            } elseif ($request->stage == 2) {
+                $request->merge(['stage' => 11]);
+            } elseif ($request->stage == 3) {
+                $request->merge(['stage' => 12]);
+            }
+        }
+    
         Teams::where('id', $id)->update([
             'stage_id' => $request->stage,
             'verified_status' => $request->verification,
         ]);
-
+    
         TeamSubmissions::where('id', $id)->update([
             'stage_id' => $request->stage,
         ]);
     
-        $team = Teams::findOrFail($id); // Tidak perlu memuat ulang data tim
-    
-        return redirect()->back()->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
+        return redirect('checkstage')->with('success', 'Data tim ' . $team->team_name . ' telah diubah.');
     }
+    
 
     /**
      * Remove the specified resource from storage.
