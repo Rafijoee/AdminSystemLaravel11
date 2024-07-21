@@ -165,7 +165,7 @@ class ProfilesController extends Controller
     }
     
 
-    public function update(StoreProfileRequest $request, string $id)
+        public function update(StoreProfileRequest $request, string $id)
     {
         $team = Teams::findOrFail($id);
         $total_members = $request->name_anggota_3 ? 3 : 2;
@@ -176,7 +176,7 @@ class ProfilesController extends Controller
             4 => 10
         ];
         $stage_id = isset($category_stage_map[$request->category_id]) ? $category_stage_map[$request->category_id] : null;
-
+    
         DB::beginTransaction();
         try {
             $team->update([
@@ -187,35 +187,41 @@ class ProfilesController extends Controller
                 'total_members' => $total_members,
                 'stage_id' => $stage_id,
             ]);
-
+    
             for ($i = 1; $i <= $total_members; $i++) {
                 $member = Members::where('team_id', $team->id)->skip($i - 1)->first();
-
-                $univ = $request['univ'];
-                $name = $request['name_anggota_' . $i];
-
-
-
-                $active_path = $member->active_certificate;
-                if ($request->hasFile('active_anggota_' . $i)) {
-                    $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
+    
+                if (!$member) {
+                    $active_path = $request->hasFile('active_anggota_' . $i) ? $request->file('active_anggota_' . $i)->store($request->team_name . '/active') : null;
+    
+                    Members::create([
+                        'team_id' => $team->id,
+                        'full_name' => $request['name_anggota_' . $i],
+                        'universitas' => $request['univ'],
+                        'active_certificate' => $active_path,
+                    ]);
+                } else {
+                    $active_path = $member->active_certificate;
+                    if ($request->hasFile('active_anggota_' . $i)) {
+                        $active_path = $request->file('active_anggota_' . $i)->store($request->team_name . '/active');
+                    }
+    
+                    $member->update([
+                        'full_name' => $request['name_anggota_' . $i],
+                        'universitas' => $request['univ'],
+                        'active_certificate' => $active_path,
+                    ]);
                 }
-
-                $member->update([
-                    'full_name' => $name,
-                    'universitas' => $univ,
-                    'active_certificate' => $active_path,
-                ]);
             }
-
+    
             DB::commit();
             return redirect('/dashboard')->with('success', 'Tim berhasil diperbarui!');
         } catch (\Exception $e) {
             DB::rollBack();
-            dd($e->getMessage());
             return redirect()->back()->with('error', 'Gagal memperbarui tim');
         }
     }
+    
     public function submission ()
     {
         $user = Auth::user()->id;
