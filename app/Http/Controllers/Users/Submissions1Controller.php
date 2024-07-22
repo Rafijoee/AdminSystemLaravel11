@@ -65,6 +65,7 @@ class Submissions1Controller extends Controller
                 $file = $request->file('submission1');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
+                dd($fileName);
                 $fileLocation = 'submission1/' . Auth::user()->teams?->category?->category_name . '/';
                 dd($fileLocation);
                 $path = $fileLocation . $fileName;
