@@ -61,7 +61,8 @@ class Submissions1Controller extends Controller
                         unlink($fileOnUpload);
                     }
                 }
-
+                $user = Auth::user();
+                dd($user);
                 $file = $request->file('submission1');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 dd($teamName);
