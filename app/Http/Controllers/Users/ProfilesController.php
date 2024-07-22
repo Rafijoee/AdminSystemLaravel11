@@ -165,7 +165,7 @@ class ProfilesController extends Controller
     }
 
 
-    public function update(StoreProfileRequest $request, string $id)
+        public function update(StoreProfileRequest $request, string $id)
     {
         $team = Teams::findOrFail($id);
         $total_members = $request->name_anggota_3 ? 3 : 2;
@@ -221,8 +221,8 @@ class ProfilesController extends Controller
             return redirect()->back()->with('error', 'Gagal memperbarui tim');
         }
     }
-
-    public function submission()
+    
+    public function submission ()
     {
         $user = Auth::user()->id;
         $team = Teams::where('user_id', $user)->first();
