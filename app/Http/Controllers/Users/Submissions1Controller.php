@@ -62,7 +62,7 @@ class Submissions1Controller extends Controller
                     }
                 }
                 $user = Auth::user();
-                dd($user);
+                dd($user)->teams;
                 $file = $request->file('submission1');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
                 dd($teamName);
