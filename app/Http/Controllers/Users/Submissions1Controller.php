@@ -63,12 +63,10 @@ class Submissions1Controller extends Controller
                 }
                 $file = $request->file('submission1');
                 $teamName = Auth::user()->teams->team_name;
-                dd($teamName);
                 $fileName = $teamName . '_' . $file->getClientOriginalName();
-                dd($fileName);
                 $fileLocation = 'submission1/' . Auth::user()->teams?->category?->category_name . '/';
-                dd($fileLocation);
                 $path = $fileLocation . $fileName;
+                dd($path);
                 $file->move(public_path($fileLocation), $fileName);
                 TeamSubmissions::where('team_id', $team_id)->update(['path_1' => $path]);
 
