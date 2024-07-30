@@ -13,8 +13,6 @@ class Controller extends BaseController
     public function download($name)
     {
         $filePath = public_path('rulebook/' . $name);
-        // dd($filePath);
-
         if (!file_exists($filePath)) {
             return redirect()->back()->with('error', 'File not found.');
         }
@@ -32,4 +30,5 @@ class Controller extends BaseController
 
         return response()->download($filePath, $filename);
     }
+
 }

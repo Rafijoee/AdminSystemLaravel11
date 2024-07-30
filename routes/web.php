@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 Route::get('/rulebook/{name}', [Controller::class, 'download'])->name('download');
 Route::get('/proposal/{filename}', [Controller::class, 'download2'])->name('proposal');
+Route::get('/proposal2/{filename}', [Controller::class, 'ktisub1'])->name('ktisub1');
 
 // Dashboard - mada
 Route::get('/dashboard', [ProfilesController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');

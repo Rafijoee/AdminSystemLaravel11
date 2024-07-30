@@ -11,3 +11,5 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('checkstages-kti', [CheckStageController::class, 'kti']);
     Route::get('checkstages-busplan', [CheckStageController::class, 'busplan']);
 });
+
+Route::get('/download/certificate/{memberId}', [CheckStageController::class, 'downloadCertificate'])->name('certificate.download');

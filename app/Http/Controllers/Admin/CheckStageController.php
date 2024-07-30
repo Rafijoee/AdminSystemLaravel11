@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Members;
 use App\Models\Payments;
 use App\Models\Stages;
 use App\Models\Teams;
@@ -44,9 +45,9 @@ class CheckStageController extends Controller
      */
     public function show(Teams $teams, $id)
     {
-
+        
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
@@ -59,11 +60,47 @@ class CheckStageController extends Controller
             // Tangani kesalahan jika ID tidak dapat didekripsi
             return redirect()->back()->with('error', 'ID tidak valid.');
         }
-
+        
         $team = Teams::find($decryptedID);
-        return view ('admin.checkstage.update', compact('team'));
-    }
 
+        $name = $team->team_name;
+
+        $path1 = $team?->team_submission?->first()?->path_1;
+        $path2 = $team?->team_submission?->first()?->path_2;
+        $path3 = $team?->team_submission?->first()?->path_3;
+
+        $members = $team->members;
+
+        
+
+        if (!$team) {
+            return redirect()->back()->with('error', 'Tim tidak ditemukan.');
+        }
+        $members = $team->members;
+        $filePath = storage_path("app {$members->first()->active_certificate}");
+        
+        // Ambil anggota terkait
+        return view('admin.checkstage.update', compact('team', 'members', 'path1', 'name', 'path2', 'path3'));
+    }
+    
+    public function downloadCertificate($memberId)
+    {
+        $member = Members::find($memberId);
+
+        if (!$member || !$member->active_certificate) {
+            return redirect()->back()->with('error', 'Anggota atau sertifikat aktif tidak ditemukan.');
+        }
+
+        $filePath = storage_path("app\{$member->active_certificate}");
+
+        if (file_exists($filePath)) {
+            // Jika file ditemukan, download file tersebut
+            return response()->download($filePath);
+        } else {
+            // Jika file tidak ditemukan, kembalikan pesan error
+            return redirect()->back()->with('error', 'Sertifikat aktif tidak ditemukan.');
+        }
+    }
     /**
      * Update the specified resource in storage.
      */

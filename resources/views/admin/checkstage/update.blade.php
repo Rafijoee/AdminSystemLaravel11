@@ -1,7 +1,7 @@
 <x-dashboard.layout>
     <div class="p-4 sm:ml-8 mt-16 mb-60">
         <div class="bg-[#F2FBFF] rounded-lg border-2 w-full h-auto">
-            <h1 class="text-4xl font-bold justify-center flex m-10">Data Tim {{$team->team_name}}</h1>
+            <h1 class="text-4xl font-bold justify-center flex m-10">Data Tim {{ $team->team_name }}</h1>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-5">
                 <form action="{{ route('checkstage.update', $team->id) }}" method="POST">
                     @method('patch')
@@ -72,5 +72,36 @@
                         </tbody>
                     </table>
                 </form>
+                <br>
+                @if ($path1 != null)
+                <div class="file-preview flex items-center mt-3">
+                    <i class="fas fa-file-archive text-blue-500 mr-2"></i>
+                    <a href="{{ asset($path1) }}" download class="text-blue-500 hover:underline">Path 1</a>
+                </div>
+                <br>
+                @endif
+                @if ($path2 != null)
+                <div class="file-preview flex items-center mt-3">
+                    <i class="fas fa-file-archive text-blue-500 mr-2"></i>
+                    <a href="{{ asset($path2) }}" download class="text-blue-500 hover:underline">Path 2</a>
+                </div>
+                <br>
+                @endif
+                @if ($path3 != null)
+                <div class="file-preview flex items-center mt-3">
+                    <i class="fas fa-file-archive text-blue-500 mr-2"></i>
+                    <a href="{{ asset($path3) }}" download class="text-blue-500 hover:underline">Path 3</a>
+                </div>
+                <br>
+                @endif
+                @foreach ($members as $member)
+                <div class="file-preview flex items-center mt-3">
+                    <i class="fas fa-file-archive text-blue-500 mr-2"></i>
+                    <a href="{{ asset($member->active_certificate) }}" download class="text-blue-500 hover:underline">KTM</a>
+                </div>
+                <br>
+                @endforeach
             </div>
+        </div>
+    </div>
 </x-dashboard.layout>

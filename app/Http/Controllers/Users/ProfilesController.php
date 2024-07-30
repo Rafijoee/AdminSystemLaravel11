@@ -137,6 +137,15 @@ class ProfilesController extends Controller
             return redirect()->back()->with('error', 'Gagal membuat tim');
         }
     }
+    public function downloadFile($path)
+    {
+        dd($path);
+        try {
+            return Storage::download($path);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal mengunduh file');
+        }
+    }
 
 
     public function edit($id)
