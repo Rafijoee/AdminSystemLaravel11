@@ -7,6 +7,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
+
 
 class payment2
 {
@@ -18,8 +20,7 @@ class payment2
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-
-        // Memastikan pengguna sudah login dan memiliki relasi dengan Team
+    
         if ($user && $user->teams) {
             $team_id = $user->teams->id;
             $paymentStatus = Payments::where('team_id', $team_id)
@@ -27,15 +28,18 @@ class payment2
                 ->orderBy('created_at', 'desc')
                 ->pluck('status')
                 ->first();
-
-            // Redirect berdasarkan status pembayaran
+    
+            Log::info('Payment Status:', ['status' => $paymentStatus]);
+    
             if ($paymentStatus === 'verified') {
                 return $next($request);
             } elseif ($paymentStatus === 'unverified' || $paymentStatus === null) {
+                Log::info('Redirecting to payment');
                 return redirect('/payment');
             }
-            // Jika pengguna tidak memiliki tim atau belum login, arahkan ke halaman lain
-            return redirect('/login');
         }
+    
+        Log::info('Redirecting to login');
+        return redirect('/login');
     }
 }
