@@ -34,6 +34,8 @@ class payment2
             } elseif ($paymentStatus === 'unverified' || $paymentStatus === null) {
                 return redirect('/payment');
             }
+            // Jika pengguna tidak memiliki tim atau belum login, arahkan ke halaman lain
+            return redirect('/login');
         }
     }
 }

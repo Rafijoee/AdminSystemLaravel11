@@ -73,10 +73,11 @@
                     </table>
                 </form>
                 <br>
+                {{ dd(asset($path1)) }}
                 @if ($path1 != null)
                 <div class="file-preview flex items-center mt-3">
                     <i class="fas fa-file-archive text-blue-500 mr-2"></i>
-                    <a href="{{ asset($path1) }}" download class="text-blue-500 hover:underline">Path 1</a>
+                    <a href="{{ asset(urlencode($path1)) }}" download class="text-blue-500 hover:underline">Path 1</a>
                 </div>
                 <br>
                 @endif
