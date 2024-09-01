@@ -21,9 +21,9 @@ class Submission2Controller extends Controller
     {
         $user = Auth::user();
         $can = $user->teams->stage_id;
-        if ($can != 2) {
-            return redirect()->route('dashboard')->with('error', 'Anda tidak bisa mengakses halaman tersebut!');
-        }
+        // if ($can != 2) {
+        //     return redirect()->route('dashboard')->with('error', 'Anda tidak bisa mengakses halaman tersebut!');
+        // }
         $fileOnUpload = Auth::user()->teams?->team_submission?->first()->path_2;
         $categorys_id = $user->teams->team_submission;
 
