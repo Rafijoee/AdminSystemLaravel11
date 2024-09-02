@@ -76,21 +76,21 @@
                 @if ($path1 != null)
                 <div class="file-preview flex items-center mt-3">
                     <i class="fas fa-file-archive text-blue-500 mr-2"></i>
-                    <a href="{{ asset(urlencode($path1)) }}" download class="text-blue-500 hover:underline">Path 1</a>
+                    <a href="{{ route('download', ['filename' => $path1]) }}" class="btn btn-primary">Path 1</a>
                 </div>
                 <br>
                 @endif
                 @if ($path2 != null)
                 <div class="file-preview flex items-center mt-3">
                     <i class="fas fa-file-archive text-blue-500 mr-2"></i>
-                    <a href="{{ asset($path2) }}" download class="text-blue-500 hover:underline">Path 2</a>
+                    <a href="{{ route('download', ['filename' => $path2]) }}" class="btn btn-primary">Path 2</a>
                 </div>
                 <br>
                 @endif
                 @if ($path3 != null)
                 <div class="file-preview flex items-center mt-3">
                     <i class="fas fa-file-archive text-blue-500 mr-2"></i>
-                    <a href="{{ asset($path3) }}" download class="text-blue-500 hover:underline">Path 3</a>
+                    <a href="{{ route('download', ['filename' => $path3]) }}" class="btn btn-primary">Path 3</a>
                 </div>
                 <br>
                 @endif
