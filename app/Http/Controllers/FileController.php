@@ -11,11 +11,14 @@ class FileController extends Controller
     {
         // Decode the filename back to its original form
         $decodedFilename = urldecode($filename);
-        $filePath = public_path('download/' . $decodedFilename);
+        
+        // Create the full path to the file in the public directory
+        $filePath = public_path($decodedFilename);
     
         if (file_exists($filePath)) {
             return response()->download($filePath);
         } else {
+            Log::warning("File not found: " . $filePath);
             return redirect()->back()->with('error', 'File not found!');
         }
     }
