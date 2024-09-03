@@ -66,6 +66,7 @@ class CheckStageController extends Controller
         $name = $team->team_name;
 
         $path1 = $team?->team_submission?->first()?->path_1;
+        dd($path1);
         $path1 = urlencode($path1);
         $path2 = $team?->team_submission?->first()?->path_2;
         $path2 = urlencode($path2);

@@ -90,7 +90,7 @@
                 @if ($path3 != null)
                 <div class="file-preview flex items-center mt-3">
                     <i class="fas fa-file-archive text-blue-500 mr-2"></i>
-                    <a href="{{ route('download', ['filename' => $path3]) }}" class="btn btn-primary">Path 3</a>
+                    <a href="{{ route('download', ['filename' => urlencode($path1)])]) }}" class="btn btn-primary">Path 3</a>
                 </div>
                 <br>
                 @endif

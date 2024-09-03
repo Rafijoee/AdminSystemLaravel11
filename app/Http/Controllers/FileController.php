@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -8,17 +9,14 @@ class FileController extends Controller
 {
     public function download($filename)
     {
-        // Lokasi file di dalam storage
-        $filePath = storage_path('app/public/' . $filename);
+        // Decode the filename to get the original path
+        $decodedFilename = urldecode($filename);
+        $filePath = public_path('download/' . $decodedFilename);
 
-        // Cek apakah file ada
         if (file_exists($filePath)) {
-            // Jika ada, download file
             return response()->download($filePath);
         } else {
-            // Jika tidak ada, tampilkan error atau redirect
             return redirect()->back()->with('error', 'File not found!');
         }
     }
 }
-
