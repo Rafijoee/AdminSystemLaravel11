@@ -9,10 +9,10 @@ class FileController extends Controller
 {
     public function download($filename)
     {
-        // Decode the filename to get the original path
+        // Decode the filename back to its original form
         $decodedFilename = urldecode($filename);
         $filePath = public_path('download/' . $decodedFilename);
-
+    
         if (file_exists($filePath)) {
             return response()->download($filePath);
         } else {
