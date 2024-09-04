@@ -19,6 +19,7 @@ class CheckStageController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {   
         $stages1 = Teams::whereIn('stage_id', [1, 4, 7, 10])->get();
@@ -62,9 +63,9 @@ class CheckStageController extends Controller
         }
         
         $team = Teams::find($decryptedID);
-
+        
         $name = $team->team_name;
-
+        
         $path1 = $team?->team_submission?->first()?->path_1;
         $path1 = urlencode($path1);
         $path2 = $team?->team_submission?->first()?->path_2;

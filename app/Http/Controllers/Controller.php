@@ -30,5 +30,4 @@ class Controller extends BaseController
 
         return response()->download($filePath, $filename);
     }
-
 }
