@@ -29,6 +29,8 @@ class Submission2Controller extends Controller
 
         return view('users.submisson2.index', compact('categorys_id', 'fileOnUpload'));
     }
+
+
     public function store(Request $request)
     {
         // Membuat direktori jika belum ada
@@ -38,7 +40,6 @@ class Submission2Controller extends Controller
         }
 
         try {
-            // Validasi input dengan pesan khusus
             $validator = Validator::make($request->all(), [
                 'submission2' => 'required|mimes:zip|max:5120',
             ], [
