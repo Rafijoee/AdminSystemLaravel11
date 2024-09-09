@@ -78,7 +78,7 @@ class FinalController extends Controller
 
                 $file = $request->file('final');
                 $teamName = Auth::user()->teams->team_name;
-                $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
+                $fileName = $teamName . '_' . $file->getClientOriginalName();
                 $fileLocation = 'final/' . Auth::user()->teams?->category?->category_name . '/';
                 $file->move(public_path($fileLocation), $fileName);
 

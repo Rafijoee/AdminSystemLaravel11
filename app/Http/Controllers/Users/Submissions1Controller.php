@@ -51,6 +51,7 @@ class Submissions1Controller extends Controller
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
+            
 
             if ($request->hasFile('submission1')) {
                 $team_id = Auth::user()->teams->id;

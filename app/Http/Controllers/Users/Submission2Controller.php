@@ -64,7 +64,7 @@ class Submission2Controller extends Controller
 
                 $file = $request->file('submission2');
                 $teamName = Auth::user()->teams->firstOrFail()->team_name;
-                $fileName = time() . '_' . $teamName . '_' . $file->getClientOriginalName();
+                $fileName = $teamName . '_' . $file->getClientOriginalName();
                 $fileLocation = 'submission2/' . Auth::user()->teams?->category?->category_name . '/';
                 $file->move(public_path($fileLocation), $fileName);
 
