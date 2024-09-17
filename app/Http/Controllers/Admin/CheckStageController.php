@@ -162,9 +162,9 @@ class CheckStageController extends Controller
 
     public function kti()
     {
-        $stages1 = Teams::Where('stage_id', 1)->get();
-        $stages2 = Teams::Where('stage_id', 2)->get();
-        $stages3 = Teams::Where('stage_id', 3)->get();
+        $stages1 = Teams::Where('stage_id', 1)->filter()->category()->get();
+        $stages2 = Teams::Where('stage_id', 2)->filter()->category()->get();
+        $stages3 = Teams::Where('stage_id', 3)->filter()->category()->get();
         return view('admin.checkstage.kti', compact('stages1', 'stages2', 'stages3'));
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -64,4 +65,18 @@ class Teams extends Model
     {
         return $this->hasMany(\App\Models\Payments::class, 'team_id','id');
     }
+    public function scopeFilter(Builder $query):void
+    {
+        if(request('search')){
+            $query->where('team_name','like','%'.request('search').'%');
+        }
+    }
+    public function scopeCategory(Builder $query):void
+    {
+        if(request('category')){
+            $query->where('category_id',request('category'));
+        }
+    }
+
+
 }

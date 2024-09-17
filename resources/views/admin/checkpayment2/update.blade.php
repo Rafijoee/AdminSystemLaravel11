@@ -54,6 +54,6 @@
                 </form>
             </div>
             <div>
-                <img src="{{asset('storage/'.$payments->payment_path)}}" alt="" class="w-60 h-60">
+                <img src="{{asset($payments->payment_path)}}" alt="" class="w-60 h-60">
             </div>
 </x-dashboard.layout>

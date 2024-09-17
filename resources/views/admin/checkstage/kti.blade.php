@@ -22,7 +22,7 @@
             <div class="flex flex-col bg-white m-10">
                 <div class="flex-row flex justify-between">
                     <h1 class="text-2xl font-bold mx-10 mt-10 mb-6">Stage 1</h1>
-                    <form action="/search" method="get" class="flex flex-row justify-between items-end mb-10">
+                    <form method="get" class="flex flex-row justify-between items-end mb-10">
                         <div class="flex flex-row space-x-10">
                             <div>
                                 <label for="search" class="text-xl font-poppins font-semibold">Team Name</label>
@@ -32,10 +32,10 @@
                                 <label for="category" class="block text-xl font-poppins font-semibold">Category</label>
                                 <select name="category" id="category" class="mt-1 border-2 rounded-lg focus:outline-none sm:text-sm block p-2.5">
                                     <option value="">-</option>
-                                    <option value="ICT Scientific Paper" {{ request('category') == 'ICT Scientific Paper' ? 'selected' : '' }}>ICT Scientific Paper</option>
-                                    <option value="ICT Business Plan" {{ request('category') == 'ICT Business Plan' ? 'selected' : '' }}>ICT Business Plan</option>
-                                    <option value="Software Development" {{ request('category') == 'Software Development' ? 'selected' : '' }}>Software Development</option>
-                                    <option value="UX Design" {{ request('category') == 'UX Design' ? 'selected' : '' }}>UX Design</option>
+                                    <option value="1" {{ request('category') == 'ICT Scientific Paper' ? 'selected' : '' }}>ICT Scientific Paper</option>
+                                    <option value="2" {{ request('category') == 'ICT Business Plan' ? 'selected' : '' }}>ICT Business Plan</option>
+                                    <option value="3" {{ request('category') == 'Software Development' ? 'selected' : '' }}>Software Development</option>
+                                    <option value="4" {{ request('category') == 'UX Design' ? 'selected' : '' }}>UX Design</option>
                                 </select>
                             </div>
                             <div>
