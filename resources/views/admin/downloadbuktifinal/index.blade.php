@@ -17,7 +17,7 @@
         </div>
         @endif
         <div class="bg-[#F2FBFF] rounded-lg border-2 w-full h-auto">
-            <h1 class="text-4xl font-bold justify-center flex m-10">Download Submission 2</h1>
+            <h1 class="text-4xl font-bold justify-center flex m-10">Download Pembayaran Final</h1>
             <hr class="border-2 ">
             <div class="flex flex-col bg-white m-10">
                 <h1 class="text-2xl font-bold mx-10 mt-10 mb-6">Scientific Paper</h1>
@@ -33,12 +33,12 @@
                                     Nama Tim
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Download Submission1
+                                    Download Pembayaran Final
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($payments as $index => $payment)
+                            @foreach ($ktis as $index => $kti)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4">
                                     {{ $index + 1 }}

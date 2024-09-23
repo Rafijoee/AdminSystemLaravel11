@@ -15,6 +15,10 @@ class Download1Controller extends Controller
         return view('dashboard.download');
     }
 
+    public function index3(){
+        return view('dashboard.downloadpembayaran');
+    }
+
     public function index()
     {
         $timktis = Teams::whereIn('stage_id',[1,2,3] ) // Filter berdasarkan stage_id

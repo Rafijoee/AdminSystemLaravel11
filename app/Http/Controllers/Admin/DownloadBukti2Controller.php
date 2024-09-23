@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Payments;
 use Illuminate\Http\Request;
 
 class DownloadBukti2Controller extends Controller
@@ -12,7 +13,40 @@ class DownloadBukti2Controller extends Controller
      */
     public function index()
     {
-        //
+        $kti = Payments::where('stage_id', 2)->get();
+        $ktis = $kti->map(function($payment) {
+            return [
+                'team_name' => $payment->team->team_name,
+                'path_2' => urlencode($payment->payment_path),
+            ];
+        });
+
+        $busplan = Payments::where('stage_id', 5)->get();
+        $busplans = $busplan->map(function($payment) {
+            return [
+                'team_name' => $payment->team->team_name,
+                'path_2' => urlencode($payment->payment_path),
+            ];
+        });
+
+        $ppl = Payments::where('stage_id', 8)->get();
+        $ppls = $ppl->map(function($payment) {
+            return [
+                'team_name' => $payment->team->team_name,
+                'path_2' => urlencode($payment->payment_path),
+            ];
+        });
+
+        $ux = Payments::where('stage_id', 11)->get();
+        $uxs = $ux->map(function($payment) {
+            return [
+                'team_name' => $payment->team->team_name,
+                'path_2' => urlencode($payment->payment_path),
+            ];
+        });
+
+
+        return view('admin.downloadbukti2.index', compact('ktis', 'busplans', 'ppls', 'uxs'));
     }
 
     /**

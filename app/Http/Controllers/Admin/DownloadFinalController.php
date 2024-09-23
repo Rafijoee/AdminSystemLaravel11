@@ -81,7 +81,7 @@ class DownloadFinalController extends Controller
         });
 
 
-        return view('admin.download2.index', compact('ktis', 'busplans', 'ppls', 'uxs'));
+        return view('admin.downloadfinal.index', compact('ktis', 'busplans', 'ppls', 'uxs'));
     }
 
     /**
