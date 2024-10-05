@@ -14,19 +14,6 @@ class StagessSeeder extends Seeder
      */
     public function run(): void
     {
-        $categgory_id = Categories::all()->pluck('id')->toArray();
-        $stages = ['pesnyisihan', 'semifinal', 'final'];
         
-        foreach ($categgory_id as $key => $value) {
-            foreach ($stages as $stage) {
-                Stages::create([
-                    'name' => $stage,
-                    'category_id' => $value,
-                    'description' => 'Tahap ' . $stage . ' ' . $value . ' ' . 'Idea IT Competition 2021',
-
-                ]);
-            }
-            
-        }
     }
 }

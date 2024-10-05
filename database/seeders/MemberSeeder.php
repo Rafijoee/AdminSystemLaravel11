@@ -14,20 +14,7 @@ class MemberSeeder extends Seeder
      */
     public function run(): void
     {
-        $team_id = Teams::all();
-        $faker = \Faker\Factory::create();
-        foreach ($team_id as $key => $value) {
-            for ($i = 0; $i < $value['total_members']; $i++) {
-                Members::create([
-                    'team_id' => $value['id'],
-                    'full_name' => $faker->name,
-                    'university_id' => random_int(1, 10),
-                    'ktm_path' => 'ktm.jpg',
-                    'active_certificate' => 'active_sertificate.jpg',
-                    'member_role' => $i == 0 ? 'ketua' : 'anggota',
-                ]);
-            }
-        }
+
         
     }
 }

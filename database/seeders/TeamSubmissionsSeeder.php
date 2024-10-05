@@ -14,14 +14,5 @@ class TeamSubmissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        $team_id = Teams::all()->pluck('id')->toArray();
-        
-        foreach ($team_id as $id) {
-            TeamSubmissions::create([
-                'team_id' => $id,
-                'stage_id' => random_int(1,4),
-
-            ]);
-        }
     }
 }

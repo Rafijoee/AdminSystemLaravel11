@@ -13,8 +13,8 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $name = ['admin', 'ksk', 'participant'];
-        $email = ['admin@itc.com','ksk@itc.com','participant@itc.com'];
+        $name = ['admin', 'participant'];
+        $email = ['admin@itc.com','user@gmail.com'];
 
         foreach ($name as $key => $value) {
             User::create([

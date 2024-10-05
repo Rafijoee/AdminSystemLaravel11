@@ -15,9 +15,11 @@ return new class extends Migration
 
         Schema::create('stages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained();
             $table->string('name');
             $table->longText('description', 500)->nullable();
-            $table->foreignId('category_id')->constrained();
+            $table->dateTime('closed_at')->nullable();
+            $table->enum('file_type', ['pdf', 'zip', 'txt', 'img']);
             $table->timestamps();
         });
 

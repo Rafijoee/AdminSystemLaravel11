@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('team_id')->constrained();
             $table->foreignId('stage_id')->constrained();
+            $table->string('path');
             $table->timestamps();
         });
 

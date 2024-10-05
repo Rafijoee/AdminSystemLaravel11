@@ -15,15 +15,5 @@ class TeamSubmissionDetailsSeeder extends Seeder
      */
     public function run(): void
     {
-        $team_submission = TeamSubmissions::all()->pluck('id')->toArray();
-        $proposal = SubmissionsTypes::where('name', 'proposal')->first()->id;
-        
-        foreach ($team_submission as $id) {
-            TeamSubmissionsDetails::create([
-                'team_submissions_id' => $id,
-                'submissions_type_id' => $proposal,
-                'path' => 'path/to/file',
-            ]);
-        }
     }
 }

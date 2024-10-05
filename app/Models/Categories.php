@@ -27,4 +27,9 @@ class Categories extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    public function stages()
+    {
+        return $this->hasMany(Stages::class);
+    }
 }
