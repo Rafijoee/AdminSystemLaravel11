@@ -1,66 +1,81 @@
 <x-app-layout>
-
     <div class="p-4 sm:ml-72 mt-4">
-        <div class="py-12 mx-10 my-5 bg-white h-full z-50 border border-gray-300 flex flex-col rounded-xl shadow-lg">
-            <!-- Header Section -->
-            <div class="m-5 flex justify-between items-center">
-                <h1 class="text-2xl font-semibold text-gray-800">Buat Kompetisi</h1>
-                <a href="#" class="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full hover:bg-gray-300">
-                    <img src="{{ asset('assets/itc.png') }}" alt="Icon" class="w-6 h-6">
-                </a>
-            </div>
+        <div class="py-12 p-8 mx-10 my-5 bg-white h-full z-50 border border-gray-300 flex flex-col rounded-xl shadow-lg ">
             
-            <!-- Divider Line -->
-            <hr class="border-t-2 border-gray-300">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Create Category with Stages</h1>
             
-            <!-- Form Section (Example Form Elements for Creating Competition) -->
-            <div class="p-5 space-y-5">
+            <form action="{{ route('makecompetition.store') }}" method="POST" class="space-y-6 px-8">
+                @csrf
+                <!-- Form untuk Category -->
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Kompetisi</label>
-                    <input type="text" id="name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <label for="category_name" class="block text-sm font-medium text-gray-700">Category Name</label>
+                    <input type="text" id="category_name" name="category_name" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
-        
+                
+                <!-- Input untuk Jumlah Stages -->
                 <div>
-                    <label for="category" class="block text-sm font-medium text-gray-700">Kategori</label>
-                    <select id="category" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>UX Design</option>
-                        <option>KTI</option>
-                        <option>Business Plan</option>
-                    </select>
+                    <label for="stage_count" class="block text-sm font-medium text-gray-700">Number of Stages</label>
+                    <input type="number" id="stage_count" name="stage_count" min="1" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
-        
-                <div>
-                    <label for="stages" class="block text-sm font-medium text-gray-700">Jumlah Stage</label>
-                    <select id="stages" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
+                
+                <!-- Container untuk dynamic stages -->
+                <div id="stages-container" class="space-y-4"></div>
+                
+                <div class="flex justify-end">
+                    <button type="submit"
+                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Create Category with Stages
+                    </button>
                 </div>
-        
-                <div>
-                    <label for="file_type" class="block text-sm font-medium text-gray-700">Tipe File per Stage</label>
-                    <select id="file_type" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>PDF</option>
-                        <option>ZIP</option>
-                        <option>TXT</option>
-                    </select>
-                </div>
-        
-                <div>
-                    <label for="open_until" class="block text-sm font-medium text-gray-700">Batas Pengumpulan Stage</label>
-                    <input type="datetime-local" id="open_until" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                </div>
-            </div>
-        
-            <!-- Submit Button -->
-            <div class="flex justify-end m-5">
-                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md shadow">
-                    Submit
-                </button>
-            </div>
+            </form>
         </div>
-        
     </div>
 
+    <script>
+        // Event listener untuk mendeteksi perubahan input jumlah stage
+        document.getElementById('stage_count').addEventListener('input', function() {
+            let stageCount = parseInt(this.value);  // Mengambil nilai input stage_count
+            let container = document.getElementById('stages-container');  // Container untuk stage form
+            container.innerHTML = '';  // Reset isi container
+            
+            // Loop untuk menambahkan form stage sesuai jumlah input
+            for (let i = 0; i < stageCount; i++) {
+                let stageForm = `
+                <div class="stage border border-gray-200 p-4 rounded-md bg-gray-50">
+                    <h4 class="text-lg font-medium text-gray-700 mb-2">Stage ${i + 1}</h4>
+                    <div class="mb-4">
+                        <label for="stages[${i}][name]" class="block text-sm font-medium text-gray-700">Stage Name</label>
+                        <input type="text" name="stages[${i}][name]" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="stages[${i}][description]" class="block text-sm font-medium text-gray-700">Description</label>
+                        <textarea name="stages[${i}][description]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="stages[${i}][closed_at]" class="block text-sm font-medium text-gray-700">Closed At</label>
+                        <input type="datetime-local" name="stages[${i}][closed_at]" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="stages[${i}][file_type]" class="block text-sm font-medium text-gray-700">File Type</label>
+                        <select name="stages[${i}][file_type]" required
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option value="pdf">PDF</option>
+                            <option value="zip">ZIP</option>
+                            <option value="txt">TXT</option>
+                            <option value="img">Image</option>
+                        </select>
+                    </div>
+                </div>
+                `;
+                container.insertAdjacentHTML('beforeend', stageForm);  // Menambahkan form stage ke container
+            }
+        });
+    </script>
 </x-app-layout>

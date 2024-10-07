@@ -14,10 +14,7 @@ class Categories extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'category_name',
-        'payment_code',
-    ];
+    protected $fillable = ['category_name'];
 
     /**
      * The attributes that should be cast to native types.

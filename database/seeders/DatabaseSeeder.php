@@ -29,7 +29,6 @@ class DatabaseSeeder extends Seeder
             // TeamsSeeder::class,
             universitySeeder::class,
             // MemberSeeder::class,
-            SubmissionTypesSeeder::class,
             SubmissionsSeeder::class,
             TeamSubmissionsSeeder::class,
             TeamSubmissionDetailsSeeder::class,

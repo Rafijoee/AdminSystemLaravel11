@@ -18,7 +18,9 @@ class Stages extends Model
     protected $fillable = [
         'name',
         'description',
-        'category_id',
+        'closed_at',
+        'file_type',
+        'category_id'  // Pastikan ini adalah category_id, bukan categories_id
     ];
 
     /**
@@ -26,10 +28,6 @@ class Stages extends Model
      *
      * @var array
      */
-    protected $casts = [
-        'id' => 'integer',
-        'category_id' => 'integer',
-    ];
 
     public function category(): BelongsTo
     {
