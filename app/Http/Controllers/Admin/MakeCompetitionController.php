@@ -16,7 +16,8 @@ class MakeCompetitionController extends Controller
      */
     public function index()
     {
-        return view ('admin.makecompetition.index');
+        $category = Categories::all();
+        return view ('admin.makecompetition.index', compact('category'));
     }
 
     /**
