@@ -16,8 +16,8 @@ class MakeCompetitionController extends Controller
      */
     public function index()
     {
-        $category = Categories::all();
-        return view ('admin.makecompetition.index', compact('category'));
+        $categories = Categories::all();
+        return view ('admin.makecompetition.index', compact('categories'));
     }
 
     /**
@@ -82,7 +82,10 @@ class MakeCompetitionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
+        $category = Categories::findOrFail($id);
+        
+        return view('admin.makecompetition.edit', compact('category'));
     }
 
     /**
