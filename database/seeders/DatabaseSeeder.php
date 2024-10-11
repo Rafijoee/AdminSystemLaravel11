@@ -22,16 +22,16 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            rolesSeeder::class,
-            UserSeeder::class,
-            CategoriesSeeder::class,
-            StagessSeeder::class,
-            // TeamsSeeder::class,
-            universitySeeder::class,
+            // rolesSeeder::class,
+            // UserSeeder::class,
+            // CategoriesSeeder::class,
+            // StagessSeeder::class,
+            TeamsSeeder::class,
+            // universitySeeder::class,
             // MemberSeeder::class,
-            SubmissionsSeeder::class,
-            TeamSubmissionsSeeder::class,
-            TeamSubmissionDetailsSeeder::class,
+            // SubmissionsSeeder::class,
+            // TeamSubmissionsSeeder::class,
+            // TeamSubmissionDetailsSeeder::class,
 
         ]);
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Stages;
 use App\Models\Teams;
 use Illuminate\Http\Request;
 
@@ -14,11 +15,10 @@ class DataTimController extends Controller
      */
     public function index()
     {
-        
+
         $categories = Categories::all();
 
-        return view ('dashboard.datatim', compact('categories'));
-
+        return view('dashboard.datatim', compact('categories'));
     }
 
     /**
@@ -69,11 +69,27 @@ class DataTimController extends Controller
         //
     }
 
-    public function category (string $category_name)
+    public function category(string $category_name)
     {
-        $category = Categories::where('category_name', $category_name)->firstOrFail();
-        $stages = $category->stages;
-        $teams = Teams::whereIn('stage_id', $stages->pluck('id'))->get();
-        return view('admin.tims.index', compact('category'));
+        $category_name = Categories::where('category_name', $category_name)->firstOrFail();
+        $stages = $category_name->stages;
+        // Buat array kosong untuk menyimpan tim berdasarkan stage
+        $teamsByStages = [];
+
+        // Untuk setiap stage, ambil tim yang sesuai dengan stage_id
+        $i = 0;
+        foreach ($stages as $stage) {
+            $i++;
+            $teamsByStages[$i] = Teams::where('stage_id', $stage->id)->get();
+        }
+
+        return view('admin.tims.index', compact('category_name', 'teamsByStages'));
     }
+
+    public function editTeamStage($category, Teams $team)
+    {
+        $stages = Stages::all(); 
+        return view('admin.tims.edit', compact('team', 'stages'));
+    }
+
 }
