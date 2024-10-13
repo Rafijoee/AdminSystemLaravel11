@@ -92,4 +92,16 @@ class DataTimController extends Controller
         return view('admin.tims.edit', compact('team', 'stages'));
     }
 
+    public function updateTeamStage(Request $request, $category, Teams $team)
+    {
+        $request->validate([
+            'stage_id' => 'required|exists:stages,id',
+        ]);
+
+        $team->stage_id = $request->input('stage_id');
+        $team->save();
+
+        return redirect()->route('category.teams', $category)->with('success', 'Stage tim berhasil diperbarui!');
+    }
+
 }

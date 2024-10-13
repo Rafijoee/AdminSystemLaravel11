@@ -89,6 +89,7 @@
                 </li>
                 @endif
                 @auth
+                @if (!auth()->user()->hasRole('admin'))
                 @if (optional(auth()->user()->teams)->verified_status != 'unverified' && auth()->user()->teams != null)
                 @if (auth()->user()->teams->stage_id == 2 || auth()->user()->teams->stage_id == 5 || auth()->user()->teams->stage_id == 8 || auth()->user()->teams->stage_id == 11)
                 <li>
@@ -119,7 +120,9 @@
                 </li>
                 @endif
                 @endif
+                @endif
                 @endauth
+                @if (!auth()->user()->hasRole('admin'))
                 @if (auth()->user()?->teams?->stage_id !== 1 && auth()?->user()?->teams?->stage_id !== null && auth()?->user()?->teams?->stage_id !== 4 && auth()?->user()?->teams?->stage_id !== 7 && auth()?->user()?->teams?->stage_id !== 10 && auth()?->user()?->teams?->stage_id !== null)
                 <li>
                     <a href="{{route('payment.index')}}" class="{{ Request::is('payment') ? 'active' : '' }} flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#B1E1F0] dark:hover:bg-gray-700 group">
@@ -129,6 +132,7 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Payment</span>
                     </a>
                 </li>
+                @endif
                 @endif
                 @if (auth()->user()->hasRole('admin'))
 
